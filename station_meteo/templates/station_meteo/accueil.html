@@ -1,0 +1,161 @@
+{% extends "ced091/base.html" %}
+
+{% block content %}
+    <fieldset class="fieldset large-12 cell">
+      <div class="grid-x grid-padding-x">
+        <div class="medium-6 cell" >
+          <canvas id="chart_hum"></canvas>
+        </div>
+        <div class="medium-6 cell">
+          <canvas id="chart_press"></canvas>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="medium-6 cell">
+          <canvas id="chart_temp"></canvas>
+        </div>
+      </div>
+    </fieldset>
+
+{% endblock %}
+
+{% block script %}
+  <script>
+  let ctx = document.getElementById("chart_hum").getContext("2d");
+
+  let chart_hum = new Chart(ctx, {
+    type: "scatter",
+    data: {
+      datasets: [
+          {
+            label: "Humidite",
+            borderColor: "#417690",
+            data: {{ data_hum|safe }},
+            showLine: false,
+            pointRadius: 1,
+          }
+      ]
+    },
+    options: {
+      title: {
+          text: "Humidite",
+          display: true,
+          fontSize: 15
+      },
+      scales: {
+          yAxes: [{
+              scaleLabel: {
+              display: true,
+              labelString: 'Humidite (%)',
+              fontSize: 15
+            }
+          }],
+          xAxes: [{
+              scaleLabel: {
+              display: true,
+              labelString: 'Duration (min)',
+              fontSize: 15,
+              type:'time',
+              time: {
+                displayFormats: {
+                  'millisecond': 'MMM DD',
+                  'second': 'MMM DD',
+                  'minute': 'MMM DD',
+                  'hour': 'MMM DD',
+                  'day': 'MMM DD',
+                  'week': 'MMM DD',
+                  'month': 'MMM DD',
+                  'quarter': 'MMM DD',
+                  'year': 'MMM DD',
+                    }
+                }
+              },
+          }],
+        },
+    }
+  });
+
+  let ctx1 = document.getElementById("chart_press").getContext("2d");
+
+  let chart_press = new Chart(ctx1, {
+    type: "scatter",
+    xValueType: "dateTime",
+    data: {
+      datasets: [
+          {
+            label: "Pression",
+            borderColor: "#417690",
+            data: {{ data_press|safe }},
+            showLine: false,
+            pointRadius: 1,
+          }
+      ]
+    },
+    options: {
+      title: {
+          text: "Pression",
+          display: true,
+          fontSize: 15
+      },
+      scales: {
+          yAxes: [{
+              scaleLabel: {
+              display: true,
+              labelString: 'Pression (bar)',
+              fontSize: 15
+            }
+          }],
+          xAxes: [{
+              scaleLabel: {
+              display: true,
+              labelString: 'Duration (min)',
+              fontSize: 15
+              },
+          }],
+        },
+    }
+  });
+
+  let ctx2 = document.getElementById("chart_temp").getContext("2d");
+
+  let chart_temp = new Chart(ctx2, {
+    type: "scatter",
+    xValueType: "dateTime",
+    data: {
+      datasets: [
+          {
+            label: "Temperature",
+            borderColor: "#417690",
+            data: {{ data_temp|safe }},
+            showLine: true,
+            pointRadius: 1,
+          }
+      ]
+    },
+    options: {
+      title: {
+          text: "Temperature",
+          display: true,
+          fontSize: 15
+      },
+      scales: {
+          yAxes: [{
+              scaleLabel: {
+              display: true,
+              labelString: 'Temperature (°C)',
+              fontSize: 15
+            }
+          }],
+          xAxes: [{
+              scaleLabel: {
+              display: true,
+              labelString: 'Duration (min)',
+              fontSize: 15
+              },
+          }],
+        },
+    }
+  });
+
+  </script>
+{% endblock %}
