@@ -14,9 +14,9 @@ def accueil(request):
     data_temp= []
     data_press=[]
     for i in range(0,20):
-        data_hum.append({'x': (x[i].date_point)*1000, 'y': y[i].pression})
+        data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
     for i in range(0,len(x)):
-        data_press.append({'x': (x[i].date_point)*1000, 'y': y[i].humidity})
+        data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
     for i in range(0,len(x)):
-        data_temp.append({'x': (x[i].date_point)*1000, 'y': y[i].temp})
+        data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
     return render(request, 'station_meteo/accueil.html', {'data_hum': data_hum, 'data_temp': data_temp, 'data_press': data_press,})
