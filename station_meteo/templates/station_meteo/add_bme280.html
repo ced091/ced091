@@ -1,0 +1,11 @@
+{% extends 'ced091/base.html' %}
+
+{% block content %}
+  <h2>Add Bme280 Reading</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Reading</button>
+    <button type="submit">Reading</button>
+  </form>
+{% endblock %}
