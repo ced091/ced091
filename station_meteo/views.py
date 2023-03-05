@@ -15,12 +15,15 @@ def accueil(request):
     data_hum = []
     data_temp= []
     data_press=[]
-    for i in range(0,20):
-        data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
-    for i in range(0,len(x)):
-        data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
-    for i in range(0,len(x)):
-        data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
+    try : 
+        for i in range(0,20):
+            data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
+        for i in range(0,len(x)):
+            data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
+        for i in range(0,len(x)):
+            data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
+    except:
+        pass
     return render(request, 'station_meteo/accueil.html', {'data_hum': data_hum, 'data_temp': data_temp, 'data_press': data_press,})
 
 def add_bme280(request):
