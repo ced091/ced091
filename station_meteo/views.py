@@ -16,7 +16,7 @@ def accueil(request):
     data_temp= []
     data_press=[]
     try : 
-        for i in range(0,20):
+        for i in range(0,len(x)):
             data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
         for i in range(0,len(x)):
             data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
