@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from station_meteo.models import Bme280
 from .forms import Bme280Form
-from capteur_temp import reading_data
+from .capteur_temp import reading_data
 
 # Create your views here.
 
