@@ -15,6 +15,15 @@ def accueil(request):
     data_hum = []
     data_temp= []
     data_press=[]
+    try :
+        data = reading_data()
+        context = {
+        "temp_now": data.temperature,
+        "pression_now": data.pressure,
+        "humidity_now": data.humidity,
+        }
+    except:
+        context = {}    
     try : 
         for i in range(0,20):
             data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
@@ -24,7 +33,10 @@ def accueil(request):
             data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
     except:
         pass
-    return render(request, 'station_meteo/accueil.html', {'data_hum': data_hum, 'data_temp': data_temp, 'data_press': data_press,})
+    context['data_hum'] = data_hum
+    context['data_temp'] = data_temp
+    context['data_press'] = data_press
+    return render(request, 'station_meteo/accueil.html', context)
 
 def add_bme280(request):
     data = reading_data()
