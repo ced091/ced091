@@ -25,7 +25,7 @@ def accueil(request):
 
 def add_bme280(request):
     data = reading_data()
-    initial_data = {'temp': data.temperature, 'humidity': data.humidity, 'pression': data.pression, 'date_point': data.timestamp}
+    initial_data = {'temp': data.temperature, 'humidity': data.humidity, 'pression': data.pressure, 'date_point': data.timestamp}
     if request.method == 'POST':
         print(request.POST)
         form = Bme280Form(request.POST)
