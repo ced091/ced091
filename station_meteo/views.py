@@ -25,15 +25,15 @@ def accueil(request):
 
 def add_bme280(request):
     data = reading_data()
-    date_object = datetime.strptime(data.timestamp, "%Y-%m-%d %H:%M:%S.%fUTC")
-    timestamp = int(date_object.timestamp())
+    date_object = data.timestamp.timestamp()
+    timestamp = float(date_object)
     initial_data = {'temp': data.temperature, 'humidity': data.humidity, 'pression': data.pressure, 'date_point': timestamp}
     if request.method == 'POST':
         print(request.POST)
         form = Bme280Form(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('accueil')
+            return redirect('station_meteo:accueil')
     else:
         form = Bme280Form(initial=initial_data)
 
