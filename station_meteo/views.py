@@ -18,9 +18,9 @@ def accueil(request):
     try :
         data = reading_data()
         context = {
-        "temp_now": data.temperature,
-        "pression_now": data.pressure,
-        "humidity_now": data.humidity,
+        "temp_now": round(data.temperature,2),
+        "pression_now": round(data.pressure,2),
+        "humidity_now": round(data.humidity,2),
         }
     except:
         context = {}    
