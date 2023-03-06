@@ -1,28 +1,46 @@
 {% extends "ced091/base.html" %}
 
 {% block content %}
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>
+<div class="grid-container">
   <div>
+    <h1>Température, hygrométrie, pression</h1>
+  </div>
+  <fieldset class="fieldset">
+    <legend>Data actuelles</legend>
     <p>Température actuelle : {{ temp_now }}</p>
     <p>Pression actuelle : {{ pression_now }}</p>
     <p>Humidité actuelle : {{ humidity_now }}</p>
-  </div>
+  </fieldset>
     <fieldset class="fieldset large-12 cell">
+      <legend>Humidité</legend>
       <div class="grid-x grid-padding-x">
         <div class="medium-12 cell" >
           <canvas id="chart_hum"></canvas>
         </div>
       </div>
+    </fieldset>
+      <fieldset class="fieldset large-12 cell">
+        <legend>Pression</legend>
       <div class="grid-x grid-padding-x">
         <div class="medium-12 cell">
           <canvas id="chart_press"></canvas>
         </div>
       </div>
+    </fieldset>
+      <fieldset class="fieldset large-12 cell">
+        <legend>Température</legend>
       <div class="grid-x grid-padding-x">
         <div class="medium-12 cell">
           <canvas id="chart_temp"></canvas>
         </div>
       </div>
     </fieldset>
+  </div>
 
 {% endblock %}
 
@@ -107,7 +125,7 @@
     // Créez un objet Moment à partir de la date
     var date = moment(data_press[i].x, "MM/DD/YYYY HH:mm:ss");
     // Formatez la date dans le format souhaité
-    var label = date.format("DD/MM/YYYY");
+    var label = date.format("DD/MM/YYYY HH:mm:ss");
     // Ajoutez l'étiquette formatée au tableau
     labels.push(label);
   }
@@ -162,7 +180,7 @@
     // Créez un objet Moment à partir de la date
     var date = moment(data_temp[i].x, "MM/DD/YYYY HH:mm:ss");
     // Formatez la date dans le format souhaité
-    var label = date.format("DD/MM/YYYY");
+    var label = date.format("DD/MM/YYYY HH:mm:ss");
     // Ajoutez l'étiquette formatée au tableau
     labels.push(label);
   }
