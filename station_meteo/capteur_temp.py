@@ -1,5 +1,6 @@
 import smbus2
 import bme280
+from .models import Bme280
 
 def reading_data():
 
@@ -24,3 +25,13 @@ def reading_data():
     print(data)
 
     return (data)
+
+def save_data():
+    data = reading_data()
+    timestamp = float(data.timestamp.timestamp())
+    temperature = float(data.temperature)
+    pression = float(data.pressure)
+    humidity = float(data.humidity)
+    point = Bme280(date_point = timestamp, temp = temperature, humidity = humidity, pression = pression)
+    point.save()
+
