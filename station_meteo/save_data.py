@@ -1,6 +1,8 @@
 import os
 import django
 
+print(os.getcwd()) 
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ced091.settings')
 django.setup()
 
