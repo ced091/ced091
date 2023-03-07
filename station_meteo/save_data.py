@@ -1,14 +1,13 @@
 import os
 import django
+import sys
 
-print(os.getcwd()) 
-os.chdir("..")
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', '.ced091.settings')
+sys.path.append("/home/bob/001/site/")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ced091.settings')
 django.setup()
 
-from .models import Bme280
-from .capteur_temp import reading_data
+from station_meteo.models import Bme280
+from station_meteo.capteur_temp import reading_data
 
 def save_data():
     data = reading_data()
