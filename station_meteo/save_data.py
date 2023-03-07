@@ -2,8 +2,9 @@ import os
 import django
 
 print(os.getcwd()) 
+os.chdir("..")
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', '..ced091.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '.ced091.settings')
 django.setup()
 
 from .models import Bme280
