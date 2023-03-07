@@ -2,14 +2,17 @@
 
 {% block content %}
 <div class="grid-container">
+    
     <div >
         <h1 style="text-align: center;">Bienvenue sur CED091</h1>
     </div>
-<p>Bonjour nous sommes {{ date_nom }}</p>
-<p>
-    <a href="{% url 'station_meteo:accueil' %}">Station Météo</a></p></br>
-    <a href="#">Pronostic</a>
-</p>
-
+    <p>Bonjour, nous sommes le {{ date_nom }}</p>
+    <fieldset>
+        <legend>Menu</legend>
+    <p>
+        <a href="{% url 'station_meteo:accueil' %}">Station Météo</a></p></br>
+        <a href="#">Pronostic</a>
+    </p>
+    </fieldset>
 </div>
 {% endblock %}
