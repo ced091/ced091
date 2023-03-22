@@ -12,9 +12,9 @@
   </div>
   <fieldset class="fieldset">
     <legend>Data actuelles</legend>
-    <p>Température actuelle : {{ temp_now }}</p>
-    <p>Pression actuelle : {{ pression_now }}</p>
-    <p>Humidité actuelle : {{ humidity_now }}</p>
+    <p>Température actuelle : <span id="temp">{{ temp_now }}</span></p>
+    <p>Pression actuelle : <span id="pression">{{ pression_now }}</span></p>
+    <p>Humidité actuelle : <span id="humidity">{{ humidity_now }}</span></p>
   </fieldset>
     <fieldset class="fieldset large-12 cell">
       <legend>Humidité</legend>
@@ -224,6 +224,16 @@
         },
     }
   });
-
+setInterval(function() {
+  $.ajax({
+    url: "/station/refresh_data/",
+    success: function(refresh_data) {
+        // Mettre à jour les éléments de la page avec les données les plus récentes
+        $("#temp").text(refresh_data.temp);
+        $("#pression").text(refresh_data.pression);
+        $("#humidity").text(refresh_data.humidity);
+    }
+});
+}, 5000);
   </script>
 {% endblock %}
