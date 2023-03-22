@@ -17,3 +17,7 @@ def save_data():
     humidity = float(data.humidity)
     point = Bme280(date_point = timestamp, temp = temperature, humidity = humidity, pression = pression)
     point.save()
+
+if __name__ == "__main__":
+    save_data()
+
