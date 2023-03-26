@@ -1,6 +1,14 @@
 {% extends "ced091/base.html" %}
 
+{% load static %}
+
 {% block content %}
+
+<style>
+    .thumbnail {
+        width: 50%;
+    }
+</style>
 <div class="grid-container">
     
     <div >
@@ -23,5 +31,8 @@
                 </div>
             </p>
     </fieldset>
+
+    <img class="thumbnail" src="{% static '/photos/mathis_26_03_23.jpg' %}" alt="Mathis in the air">
+    
 </div>
 {% endblock %}

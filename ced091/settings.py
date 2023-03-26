@@ -137,6 +137,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
 
+
 STATIC_ROOT = Path(__file__).resolve().parent.parent.parent
 
 # Default primary key field type
