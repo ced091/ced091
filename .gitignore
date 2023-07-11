@@ -2,3 +2,5 @@ station_meteo/__pycache__/admin.cpython-39.pyc station_meteo/__pycache__/apps.cp
 ced091/__pycache__/
 station_meteo/__pycache__/
 *__pycache__*
+sideface/__init__.py
+sideface/migrations/__init__.py
