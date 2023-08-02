@@ -86,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ceddb',
-        'USER': 'bob',
+        'USER': '',
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
