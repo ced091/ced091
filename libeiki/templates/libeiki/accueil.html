@@ -1,9 +1,59 @@
 {% extends "ced091/base.html" %}
 
+{% load static %}
+
 {% block menu %}
     {% include 'libeiki/menu.html' %}
 {% endblock %}
 
 {% block content %}
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
+.marge-gauche {
+    background-color: #76B39B;
+    color: black;
+    padding: 20px;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+}
+img {
+    background-color: #76B39B;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.contenu-principal {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+</style>
+<body>
+
+    <div class="marge-gauche">
+        <img class="thumbnail" src="{% static '/photos/Logo-LIBEIKI2.png' %}" alt="LIBEIKI">
+        <p>JOAQUIM Gabrielle</p>
+        <p>06 63 12 72 58</p>
+        <p>libellule_1982@hotmail.com</p>
+    </div>
+
+    <div class="contenu-principal">
+    </div>
+
+</body>
 {% endblock %}
