@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'station_meteo',
     'gunicorn',
+    'libeiki',
 ]
 
 MIDDLEWARE = [

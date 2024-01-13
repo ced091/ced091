@@ -20,5 +20,6 @@ from . import views
 urlpatterns = [
     path('', views.main, name="main"),
     path('station/', include('station_meteo.urls')),
+    path('libeiki/', include('libeiki.urls')),
     path('admin/', admin.site.urls),
 ]
