@@ -12,16 +12,6 @@ body {
     margin: 0;
     font-family: Dosis, sans-serif;
 }
-
-.marge-gauche {
-    background-color: #76B39B;
-    color: black;
-    padding: 20px;
-    width: 250px;
-    position: fixed;
-    height: 100%;
-    top: 0;
-}
 img {
     background-color: #76B39B;
 }
@@ -33,7 +23,6 @@ img {
 }
 
 .contenu-principal {
-    margin-left: 250px;
     padding: 20px;
 }
 
@@ -58,7 +47,7 @@ p {
         }
 #intro {
 
-    font-size: 24px;
+    font-size: 28px;
 }
 
         .orbit-container img {
@@ -69,7 +58,7 @@ p {
 
 .custom-text-container {
     position: absolute;
-    top: 65%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -90,21 +79,18 @@ p {
 }
 </style>
 <body>
-
-    <div class="marge-gauche">
-        <img class="thumbnail" src="{% static '/photos/Logo-LIBEIKI2.png' %}" alt="LIBEIKI">
-        <p>JOAQUIM Gabrielle</p>
-        <p>06 63 12 72 58</p>
-        <p>libellule_1982@hotmail.com</p>
-    </div>
-
     <div class="contenu-principal">
-        <div class="grid-container">
-            <p id="intro">Bienvenue dans un univers dédié à votre bien-être, où le Reiki apaise, la sophrologie équilibre et les massages du visage réconfortent, le tout dans le confort de votre domicile. Découvrez une expérience unique, façonnée selon vos besoins, là où le bien-être prend vie chez vous.</p>
-            <br\>
-            <br>
-            <br>
-        </div>
+            <div class="grid-x">
+                <div class="cell medium-3" style="text-align:left;">
+                    <img class="thumbnail" src="{% static '/photos/Logo-LIBEIKI2.png' %}" alt="LIBEIKI" width=40%>
+                </div>
+                <div class="cell medium-9">                    
+                    <p id="intro">Bienvenue dans un univers dédié à votre bien-être, où le Reiki apaise, la sophrologie équilibre et les massages du visage réconfortent, le tout dans le confort de votre domicile. Découvrez une expérience unique, façonnée selon vos besoins, là où le bien-être prend vie chez vous.</p>
+                    <br\>
+                    <br>
+                    <br>
+                </div>
+            </div>
             <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
                 <div class="orbit-wrapper">
                   <div class="orbit-controls">
