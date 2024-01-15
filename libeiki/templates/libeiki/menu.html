@@ -6,30 +6,44 @@
     background-color: #76B39B;
     padding:-5px;
     margin:0;
-  }
+  }        
 
-  .top-bar {
+  .top-bar, .top-bar-left, .top-bar-right, .menu.align-right.simple, .dropdown.menu.expanded.simple, .menu {
     background-color: #76B39B;
+    justify-content: flex-end;
   }
-
-  #dropdown-menu {
-    background-color: #76B39B;
-  }
-  .custom-menu {
-    text-align: right;
-    padding:0;
-    margin:0;
-  }
-
-  .custom-left {
-    margin-left:10%;
-  }
-        
 </style>
 
+<div class="top-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <div class="top-bar-left">
+      <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+      <div class="title-bar-title">Menu</div>
+  </div>
+  <div class="top-bar-right" >
+    <ul class="menu">
+      <li>
+        <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
+          <img src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
+          <img src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
+        </a>
+      </li>
+      <li>
+        <a href="mailto:libellule_1982@hotmail.com" target="_blank">
+          <img src="{% static '/photos/email.png' %}" alt="Mail To" width="30">
+        </a>
+      </li>      
+    </ul>
+  </div>
+</div>
+
+
 <div class="top-bar" id="responsive-menu">
-  <div class="top-bar-left custom-left" > 
-    <ul class="dropdown menu custom-menu" id="dropdown-menu" data-dropdown-menu>
+  <div class="top-bar-left" > 
+    <ul class="dropdown menu expanded simple" data-dropdown-menu>
       <li>
         <a href="#">REIKI</a>
         <ul class="menu vertical">
@@ -56,8 +70,8 @@
       <li><a href="#">LAISSER UN COMMENTAIRE</a></li>
     </ul>
   </div>
-  <div class="top-bar-right custom-right" >
-    <ul class="menu custom-menu">
+  <div class="top-bar-right" >
+    <ul class="menu align-right simple">
       <li>
         <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
           <img src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
@@ -72,8 +86,9 @@
         <a href="mailto:libellule_1982@hotmail.com" target="_blank">
           <img src="{% static '/photos/email.png' %}" alt="Mail To" width="30">
         </a>
-      </li>
-      
-  </ul>
+      </li>      
+    </ul>
   </div>
+</div>
+  
 </div>
