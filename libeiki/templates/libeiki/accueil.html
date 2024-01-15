@@ -36,14 +36,18 @@ p {
     border: none;
 }
 
-.contenu-principal {
-            background-image: url('{% static "/photos/fond.png" %}');
+body {
+    background-image: url('{% static "/photos/fond.png" %}');
             background-size: cover;
             background-position: center;
             height: 100vh;
+}
+
+.contenu-principal {
+            
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 0px;
         }
 #intro {
 
@@ -55,14 +59,17 @@ p {
             height: 100%;
             object-fit: cover
         }
-
+.orbit-container {
+    padding:0px;
+}
 .custom-text-container {
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white; /* Couleur du texte */
+    color: black; /* Couleur du texte */
+    font-size: 24px;
 }
 
 .custom-text-container a {
@@ -72,25 +79,15 @@ p {
     border: 1px solid white;
     padding: 15px;
 }
-
-.orbit-caption {
-    font-family: Dosis, sans-serif;
-    font-size: 24px;
-}
 </style>
 <body>
-    <div class="contenu-principal">
-            <div class="grid-x">
-                <div class="cell medium-2" style="text-align:left;">
-                    <img class="thumbnail" src="{% static '/photos/Logo-LIBEIKI2.png' %}" alt="LIBEIKI" width=40%>
-                </div>
-                <div class="cell medium-10" style="text-align:left;>                    
+    <div class="contenu-principal">                
+                <div class="grid-container">                    
                     <p id="intro">Bienvenue dans un univers dédié à votre bien-être, où le Reiki apaise, la sophrologie équilibre et les massages du visage réconfortent, le tout dans le confort de votre domicile. Découvrez une expérience unique, façonnée selon vos besoins, là où le bien-être prend vie chez vous.</p>
-                    <br\>
-                    <br>
-                    <br>
                 </div>
-            </div>
+                <div>
+                    <img class="thumbnail" src="{% static '/photos/Logo-LIBEIKI2.png' %}" alt="LIBEIKI" width=10%>
+                </div>
             <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
                 <div class="orbit-wrapper">
                   <div class="orbit-controls">
@@ -102,27 +99,33 @@ p {
                       <figure class="orbit-figure">
                         <img class="orbit-image" src="{% static '/photos/reiki.jpg' %}" alt="Reiki" class="image-redimensionnee">
                         <div class="custom-text-container">
+                            <p>Scéance de REIKI</p>
+                            <br>
+                            <br>
                             <a href="#">JE RESERVE</a>
                         </div>
-                        <figcaption class="orbit-caption">REIKI</figcaption>
                       </figure>
                     </li>
                     <li class="orbit-slide">
                       <figure class="orbit-figure">
                         <img class="orbit-image" src="{% static '/photos/reiki.jpg' %}" alt="Sophrologie" class="image-redimensionnee">
                         <div class="custom-text-container">
+                            <p>Scéance de SOPHROLOGIE</p>
+                            <br>
+                            <br>
                             <a href="#">JE RESERVE</a>
                         </div>
-                        <figcaption class="orbit-caption">SOPHROLOGIE</figcaption>
                       </figure>
                     </li>
                     <li class="orbit-slide">
                       <figure class="orbit-figure">
                         <img class="orbit-image" src="{% static '/photos/reiki.jpg' %}" alt="Massage tête" class="image-redimensionnee">
                         <div class="custom-text-container">
+                            <p>Scéance de MASSAGE VISAGE</p>
+                            <br>
+                            <br>
                             <a href="#">JE RESERVE</a>
                         </div>
-                        <figcaption class="orbit-caption">MASSAGE VISAGE</figcaption>
                       </figure>
                     </li>
                   </ul>
