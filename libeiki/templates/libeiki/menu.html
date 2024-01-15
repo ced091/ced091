@@ -6,15 +6,15 @@
     background-color: #76B39B;
     padding:-5px;
     margin:0;
+    padding: 0;
   }        
 
-  .top-bar, .top-bar-left, .top-bar-right, .menu.align-right.simple, .dropdown.menu.expanded.simple, .menu {
+  .top-bar, .top-bar-left, .top-bar-right, .menu.align-right.simple, .dropdown.menu.expanded.simple, .menu, .is-submenu-item.is-dropdown-submenu-item  {
     background-color: #76B39B;
     justify-content: flex-end;
   }
 </style>
-
-<div class="top-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+<div class="top-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
   <div class="top-bar-left">
       <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
       <div class="title-bar-title">Menu</div>
@@ -48,21 +48,21 @@
         <a href="#">REIKI</a>
         <ul class="menu vertical">
           <li><a href="#">Qu'est ce que le Reiki?</a></li>
-          <li><a href="#">Tarifs</a></li>
+          <li style="position: relative; left: -16px;"><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li>
         <a href="#">SOPHROLOGIE</a>
         <ul class="menu vertical">
           <li><a href="#">Qu'est ce que la Sophrologie?</a></li>
-          <li><a href="#">Tarifs</a></li>
+          <li style="position: relative; left: -16px;"><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li>
         <a href="#">MASSAGE VISAGE</a>
         <ul class="menu vertical">
           <li><a href="#">Qu'est ce que le Massage type?</a></li>
-          <li><a href="#">Tarifs</a></li>
+          <li style="position: relative; left: -16px;"><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li><a href="#">CONTACT</a></li>
