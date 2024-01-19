@@ -8,19 +8,24 @@
 
 {% block content %}
 <style>
-body {
+    
+ body {
     margin: 0;
     font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
 }
 img {
     background-color: #76B39B;
 }
 
-.logo {
+/* .logo {
     width: 50px;
     height: auto;
     margin-bottom: 20px;
-}
+} */
 
 .contenu-principal {
     padding: 20px;
@@ -35,14 +40,6 @@ p {
 .thumbnail {
     border: none;
 }
-
-body {
-    background-image: url('{% static "/photos/fond.png" %}');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-}
-
 .contenu-principal {
             
             color: white;
@@ -68,25 +65,40 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: black; /* Couleur du texte */
+    color: black; 
     font-size: 24px;
 }
 
 .custom-text-container a {
-    color: white; /* Couleur du lien */
+    color: white; 
     background-color: rgba(0, 0, 0, 0);
     font-size: 18px;
     border: 1px solid white;
     padding: 15px;
+} 
+
+@media only screen and (max-width: 768px) {
+
+#intro {
+
+font-size: 18px;
+}
+
+.custom-text-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black; 
+    font-size: 16px;
+}
 }
 </style>
 <body>
     <div class="contenu-principal">                
                 <div class="grid-container">                    
                     <p id="intro">Bienvenue dans un univers dédié à votre bien-être, où le Reiki apaise, la sophrologie équilibre et les massages du visage réconfortent, le tout dans le confort de votre domicile. Découvrez une expérience unique, façonnée selon vos besoins, là où le bien-être prend vie chez vous.</p>
-                </div>
-                <div>
-                    <img class="thumbnail" src="{% static '/photos/Logo-LIBEIKI2.png' %}" alt="LIBEIKI" width=10%>
                 </div>
             <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
                 <div class="orbit-wrapper">

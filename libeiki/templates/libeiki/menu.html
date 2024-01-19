@@ -1,94 +1,205 @@
+{% block menu %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
-    a, ul, li {
-    color: white;
-    background-color: #76B39B;
-    padding:-5px;
-    margin:0;
-    padding: 0;
-  }        
+    nav {
+      background-color: #76B39B;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  .top-bar, .top-bar-left, .top-bar-right, .menu.align-right.simple, .dropdown.menu.expanded.simple, .menu, .is-submenu-item.is-dropdown-submenu-item  {
-    background-color: #76B39B;
-    justify-content: flex-end;
-  }
-</style>
-<div class="top-bar" data-responsive-toggle="responsive-menu" data-hide-for="large">
-  <div class="top-bar-left">
-      <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-      <div class="title-bar-title">Menu</div>
-  </div>
-  <div class="top-bar-right" data-hide-for="large">
-    <ul class="menu">
-      <li>
-        <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
-          <img src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
-          <img src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
-        </a>
-      </li>
-      <li>
-        <a href="mailto:libellule_1982@hotmail.com" target="_blank">
-          <img src="{% static '/photos/email.png' %}" alt="Mail To" width="30">
-        </a>
-      </li>      
-    </ul>
-  </div>
-</div>
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
 
+    li {
+      margin-right: 20px;
+      position: relative;
+    }
 
-<div class="top-bar" id="responsive-menu">
-  <div class="top-bar-left" > 
-    <ul class="dropdown menu expanded simple" data-dropdown-menu>
-      <li>
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #fff;
+    }
+
+    .logo {
+      max-width: 200px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+      background-color: #588573;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+    }
+
+    li:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #fff;
+      display: block;
+    }
+
+    /* Nouvelle classe pour aligner les éléments à droite */
+    .social-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icons img {
+      margin-right: 10px;
+      z-index: 11;
+    }
+
+    /* Style pour le bouton de menu sur les écrans plus petits */
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+    }
+
+    a:hover {
+  border-bottom: 2px solid #fff;
+  color: #000; /* Changez cette valeur pour définir la nouvelle couleur au survol */
+}
+
+    @media only screen and (max-width: 768px) {
+
+        .logo {
+    margin-right: 0; /* Supprime la marge à droite */
+    order: -1; /* Change l'ordre d'affichage pour placer le logo en premier */
+    max-width: 150px;
+    }
+    .dropdown-max{
+      display: none;
+    }
+      ul {
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Ajuster la hauteur de la barre de menu si nécessaire */
+        left: 0;
+        background-color: #76B39B;
+        z-index: 2; /* Ajuster le z-index pour positionner le menu au-dessus des autres éléments */
+      }
+
+    .social-icons {
+      z-index: 3;
+    }
+
+      .menu-icon {
+        display: block;
+        cursor: pointer;
+        position: relative; /* Ajouter cette ligne pour définir le contexte d'empilement pour le z-index */
+        z-index: 3; /* Ajuster le z-index pour positionner le bouton de menu au-dessus du menu */
+      }
+
+      .menu-icon img {
+        width: 50px;
+        height: auto;
+      }
+
+      /* Ajout de cette partie pour afficher le menu au clic */
+      ul.active {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px; /* Ajustez la marge en fonction de la quantité d'espace souhaitée en haut du menu */
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #76B39B;
+  z-index: 2;
+}
+    }
+  </style>
+
+  <!-- Ajout du script JavaScript -->
+  <script>
+    // Fonction pour basculer la classe 'active' du menu
+    function toggleMenu() {
+      var menu = document.querySelector('ul');
+      menu.classList.toggle('active');
+    }
+  </script>
+    </head>
+    <body>
+    
+      <nav>
+        <img src="{% static '/photos/Logo-LIBEIKI1.png' %}" alt="Logo de votre site" class="logo">
+        <ul class="dropdown-max">
+          <li>
         <a href="#">REIKI</a>
-        <ul class="menu vertical">
+        <ul class="dropdown">
           <li><a href="#">Qu'est ce que le Reiki?</a></li>
-          <li style="position: relative; left: -16px;"><a href="#">Tarifs</a></li>
+          <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li>
         <a href="#">SOPHROLOGIE</a>
-        <ul class="menu vertical">
-          <li><a href="#">Qu'est ce que la Sophrologie?</a></li>
-          <li style="position: relative; left: -16px;"><a href="#">Tarifs</a></li>
+        <ul class="dropdown">
+          <li><a href="#">Qu'est ce que la sophrologie?</a></li>
+          <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li>
         <a href="#">MASSAGE VISAGE</a>
-        <ul class="menu vertical">
+        <ul class="dropdown">
           <li><a href="#">Qu'est ce que le Massage type?</a></li>
-          <li style="position: relative; left: -16px;"><a href="#">Tarifs</a></li>
+          <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li><a href="#">CONTACT</a></li>
       <li><a href="#">QUI SUIS-JE ?</a></li>
       <li><a href="#">LAISSER UN COMMENTAIRE</a></li>
     </ul>
-  </div>
-  <div class="top-bar-right" >
-    <ul class="menu align-right simple">
-      <li>
-        <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
-          <img src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
-          <img src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
-        </a>
-      </li>
-      <li>
-        <a href="mailto:libellule_1982@hotmail.com" target="_blank">
-          <img src="{% static '/photos/email.png' %}" alt="Mail To" width="30">
-        </a>
-      </li>      
-    </ul>
-  </div>
-</div>
-  
-</div>
+
+    <!-- Nouvelle structure pour les icônes sociales -->
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
+        <img src="{% static '/photos/facebook2.png' %}" alt="Facebook" width="30">
+      </a>
+      <a href="https://www.instagram.com/votre_compte_instagram/" target="_blank">
+        <img src="{% static '/photos/instagram2.png' %}" alt="Instagram" width="30">
+      </a>
+      <a href="mailto:libellule_1982@hotmail.com" target="_blank">
+        <img src="{% static '/photos/email.png' %}" alt="Mail To" width="30">
+      </a>
+    </div>
+
+    <!-- Bouton de menu pour les écrans plus petits -->
+    <div class="menu-icon" onclick="toggleMenu()">
+      </div>
+
+  </nav>
+
+</body>
+</html>
+{% endblock %}
