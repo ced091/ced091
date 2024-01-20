@@ -1,0 +1,92 @@
+{% extends "ced091/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+}
+
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: black;
+}
+
+.intro {
+
+font-size: 18px;
+text-align: justify;
+color:white;
+}
+
+.reiki_signe {
+    text-align: right;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.intro {
+
+font-size: 18px;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+}
+</style>
+
+<body>
+    <div class="contenu-principal">                
+                <div class="grid-container">     
+                              
+                    <p class="intro">
+                        Qui suis-je ? <br> <br>
+
+                        Permettez-moi de vous présenter Gabrielle, une femme au parcours riche et dévouée au bien-être. 
+                        Pendant deux décennies, elle a exercé avec passion le métier d'assistante dentaire, 
+                        contribuant ainsi à la santé bucco-dentaire de nombreux patients. Cependant, à un moment crucial de sa vie, 
+                        Gabrielle a fait le choix audacieux de rediriger sa carrière vers un nouvel horizon.
+                    </p>
+                    <br>
+                    <p class="intro">       
+                        Aujourd'hui, elle se consacre entièrement à l'épanouissement des individus en offrant des séances de Reiki, 
+                        de sophrologie et de massage du visage. Cette transition reflète son profond engagement envers le bien-être global, 
+                        mettant en avant des pratiques qui nourrissent l'âme, le corps et l'esprit. 
+                        Gabrielle incarne la notion que le changement peut être une porte vers une vie plus équilibrée et épanouissante, 
+                        où le souci de soi prend le devant de la scène. Avec son expérience et sa passion, 
+                        elle invite chacun à embarquer pour un voyage de détente et d'harmonie.                       
+                    </p>
+                    
+                </div>
+
+    </div>
+    </body>
+    <footer>
+        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2023</p>
+      </footer>
+{% endblock %}
