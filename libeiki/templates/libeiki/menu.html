@@ -13,7 +13,7 @@
 
     nav {
       background-color: #76B39B;
-      color: black;
+      color: #fff;
       padding: 10px;
       display: flex;
       align-items: center;
@@ -48,9 +48,9 @@
 }
 
     .logo {
-      max-width: 100px;
+      max-width: 150px;
       height: auto;
-      margin-right: 20px;
+      padding-left: 0px;
     }
 
     figcaption {
@@ -108,17 +108,18 @@
 
         .logo {
     margin-right: 0; /* Supprime la marge à droite */
+    
     order: -1; /* Change l'ordre d'affichage pour placer le logo en premier */
     max-width: 150px;
     }
     .dropdown-max{
       display: none;
     }
-      ul {
+      ul.dropdown {
         width: 100%;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Ajuster la hauteur de la barre de menu si nécessaire */
+        top: 20px; /* Ajuster la hauteur de la barre de menu si nécessaire */
         left: 0;
         background-color: #76B39B;
         z-index: 2; /* Ajuster le z-index pour positionner le menu au-dessus des autres éléments */
