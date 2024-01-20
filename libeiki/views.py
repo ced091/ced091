@@ -8,3 +8,6 @@ def reiki(request):
 
 def quisuisje(request):
     return render(request, "libeiki/quisuisje.html")
+
+def visage(request):
+    return render(request, "libeiki/visage.html")

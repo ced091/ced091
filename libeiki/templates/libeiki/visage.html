@@ -1,0 +1,143 @@
+{% extends "ced091/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+}
+
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: black;
+}
+
+.intro {
+
+font-size: 18px;
+text-align: justify;
+color:white;
+}
+
+.reiki_signe {
+    text-align: right;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.intro {
+
+font-size: 18px;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+}
+</style>
+
+<body>
+    <div class="contenu-principal">                
+                <div class="grid-container">     
+                              
+                    <p class="intro">
+                        Qu’est ce que le massage visage? <br> <br>                        
+
+                        Le massage du visage, aussi connu sous le nom de massage facial, est une technique qui vise à détendre les muscles du visage et du cou, 
+                        à stimuler la circulation sanguine, et à améliorer l'élasticité de la peau. 
+                        Cette forme de massage peut être réalisée à des fins de bien-être, de relaxation ou même pour des bénéfices esthétiques.
+                    </p>
+                    <br>
+                    <p class="intro">       
+                        Un massage du visage typique implique des mouvements doux, des pressions légères, 
+                        et parfois l'utilisation d'huiles ou de crèmes pour faciliter les mouvements des mains sur la peau. 
+                        Certains massages du visage incorporent des techniques de drainage lymphatique pour réduire les gonflements et favoriser l'élimination des toxines.                       
+                    </p>
+                    <br>
+                    <p class="intro">       
+                        Outre les avantages physiques, le massage du visage peut contribuer à soulager le stress, 
+                        à détendre les muscles tendus, et à offrir une sensation générale de bien-être. 
+                        Il est important de noter que, bien que le massage du visage puisse être apaisant, 
+                        il est recommandé de consulter un professionnel qualifié pour garantir une expérience sûre et efficace.
+                    </p>
+                    <br>
+                    <p class="intro">       
+                        Comment se déroule une séance de massage visage?<br>
+                        Une séance de massage du visage peut varier en fonction des préférences du praticien et des besoins du client,
+                        mais voici généralement comment elle se déroule :
+                    </p>   
+                    <br>
+                    <p class="intro">       
+                        1. Consultation préalable : <br>
+                        Avant la séance, le praticien discutera avec le client pour comprendre ses attentes, 
+                        ses préoccupations et ses besoins spécifiques.
+                    </p>   
+                    <br>
+                    <p class="intro">       
+                        2. Installation du client :<br>
+                        Le client s'installe confortablement sur une table de massage ou dans une chaise spéciale conçue pour les massages du visage.
+                    </p> 
+                    <br>
+                    <p class="intro">       
+                        3. Préparation de la peau :<br>       
+                        Si nécessaire, 
+                        le praticien peut nettoyer la peau du visage du client ou appliquer des huiles ou des crèmes adaptées pour faciliter les mouvements.
+                    </p>                  
+                    <br>
+                    <p class="intro">       
+                        4. Massage du visage :<br>
+                        Le praticien utilise des techniques de massage telles que des mouvements circulaires, 
+                        des pétrissages légers et des pressions douces sur différentes parties du visage et du cou.
+                    </p> 
+                    <br>
+                    <p class="intro">       
+                        5. Éventuellement, utilisation d'accessoires :<br>
+                        Certains praticiens peuvent intégrer des accessoires tels que des rouleaux en jade,
+                         des pierres chaudes ou des outils spécifiques pour améliorer l'expérience du massage.
+                    </p> 
+                    <br>
+                    <p class="intro">       
+                        6. Fin de la séance :<br>
+                        À la fin de la séance, le client est souvent invité à se réveiller en douceur et à partager ses impressions avec le praticien.
+                    </p>
+                    <br>
+                    <p class="intro">       
+                        L'objectif principal est de procurer une détente profonde, 
+                        de stimuler la circulation sanguine, et d'offrir une expérience agréable favorisant le bien-être. 
+                        Les séances de massage du visage peuvent varier en durée, 
+                        mais elles sont généralement plus courtes que d'autres types de massages corporels.
+                    </p>
+
+                    
+                </div>
+
+    </div>
+    </body>
+    <footer>
+        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2023</p>
+      </footer>
+{% endblock %}
