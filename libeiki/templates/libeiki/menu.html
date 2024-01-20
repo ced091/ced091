@@ -42,11 +42,25 @@
       border-bottom: 2px solid #fff;
     }
 
+    .logo-container {
+    display: flex;
+    align-items: center;
+}
+
     .logo {
       max-width: 200px;
       height: auto;
       margin-right: 20px;
     }
+
+    figcaption {
+    text-align: center; /* Aligner le texte au centre si nécessaire */
+}
+
+    #nom {
+    margin: 0;
+    color: white;
+}
 
     .dropdown {
       position: absolute;
@@ -153,7 +167,18 @@
     <body>
     
       <nav>
-        <img src="{% static '/photos/Logo-LIBEIKI1.png' %}" alt="Logo de votre site" class="logo">
+        <div class="logo-container">
+          <figure>
+          <img src="{% static '/photos/Logo-LIBEIKI1.png' %}" alt="Logo de votre site" class="logo">
+          <figcaption>JOAQUIM Gabrielle
+            <p>06 63 12 72 58</p>
+          </figcaption>
+        </figure>
+        <div class="caption">
+          <p id="nom"></p>
+        </div>
+        </div>  
+        
         <ul class="dropdown-max">
           <li>
         <a href="#">REIKI</a>
