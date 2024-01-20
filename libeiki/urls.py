@@ -6,4 +6,5 @@ app_name = 'libeiki'
 
 urlpatterns = [
     path('', views.accueil, name='accueil'),
+    path('reiki/', views.reiki, name='reiki'),
 ]
