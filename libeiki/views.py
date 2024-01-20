@@ -11,3 +11,6 @@ def quisuisje(request):
 
 def visage(request):
     return render(request, "libeiki/visage.html")
+
+def sophrologie(request):
+    return render(request, "libeiki/sophrologie.html")
