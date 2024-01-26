@@ -55,6 +55,8 @@
 
     figcaption {
     text-align: center; /* Aligner le texte au centre si nécessaire */
+    color: black;
+
 }
 
     #nom {
@@ -65,7 +67,7 @@
     .dropdown {
       position: absolute;
       top: 100%;
-      left: 0;
+      left: -20px;
       display: none;
       background-color: #588573;
       padding: 10px;
@@ -104,48 +106,74 @@
   color: white; /* Changez cette valeur pour définir la nouvelle couleur au survol */
 }
 
-    @media only screen and (max-width: 768px) {
+.contenu-principal.menu-open {
+  margin-top: 180px; /* Ajustez la valeur selon la hauteur du sous-menu */
+  transition: margin-top 0.3s ease-out;
+}
 
-        .logo {
-    margin-right: 0; /* Supprime la marge à droite */
-    
-    order: -1; /* Change l'ordre d'affichage pour placer le logo en premier */
-    max-width: 150px;
-    }
-    .dropdown-max{
-      display: none;
-    }
-      ul.dropdown {
-        width: 100%;
-        flex-direction: column;
-        position: absolute;
-        top: 20px; /* Ajuster la hauteur de la barre de menu si nécessaire */
-        left: 0;
-        background-color: #76B39B;
-        z-index: 2; /* Ajuster le z-index pour positionner le menu au-dessus des autres éléments */
-      }
+@media only screen and (max-width: 768px) {
 
-    .social-icons {
-      z-index: 3;
-    }
+#all-menu {
+  text-align: center;
+}
 
-      .menu-icon {
-        display: block;
-        cursor: pointer;
-        position: relative; /* Ajouter cette ligne pour définir le contexte d'empilement pour le z-index */
-        z-index: 3; /* Ajuster le z-index pour positionner le bouton de menu au-dessus du menu */
-      }
+figcaption {
+  font-size: 14px;
+  color: black;
+}
 
-      .menu-icon img {
-        width: 50px;
-        height: auto;
-      }
+.logo {
+  margin-right: 0;
+  order: -1;
+  width: 70px;
+  margin-left: 30px;
+}
 
-      /* Ajout de cette partie pour afficher le menu au clic */
-      ul.active {
+.dropdown-max {
+  display: none;
+}
+
+ul.dropdown {
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+ul.dropdown .submenu {
+  display: none;
+  padding-left: 20px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #76B39B;
+  z-index: 2;
+}
+
+.sub .has-submenu:hover .submenu {
+  display: block;
+  animation: slideIn 0.3s ease-out;
+}
+.social-icons {
+  z-index: 3;
+}
+
+.menu-icon {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+}
+
+.menu-icon img {
+  width: 50px;
+  height: auto;
+}
+
+ul.active {
   display: flex;
   flex-direction: column;
-  margin-top: 30px; /* Ajustez la marge en fonction de la quantité d'espace souhaitée en haut du menu */
+  margin-top: 30px;
   width: 100%;
   position: absolute;
   top: 120px;
@@ -153,7 +181,21 @@
   background-color: #76B39B;
   z-index: 2;
 }
-    }
+
+/* Ajout de l'animation slideIn */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+}
+
   </style>
 
   <!-- Ajout du script JavaScript -->
@@ -162,12 +204,15 @@
     function toggleMenu() {
       var menu = document.querySelector('ul');
       menu.classList.toggle('active');
+      // Ajouter ou supprimer la classe sur contenu-principal
+    var contenuPrincipal = document.querySelector('.contenu-principal');
+    contenuPrincipal.classList.toggle('menu-open');
     }
   </script>
     </head>
     <body>
     
-      <nav>
+      <nav id="all-menu">
         <div class="logo-container">
           <figure>
           <img src="{% static '/photos/Logo-LIBEIKI1.png' %}" alt="Logo de votre site" class="logo">
@@ -181,22 +226,22 @@
         </div>  
         
         <ul class="dropdown-max">
-          <li><a href="{% url 'libeiki:accueil' %}"><i class="fi-home"></i></a></li>
-      <li>
+          <li><a href="{% url 'libeiki:accueil' %}"><span class="fi-home"> ACCUEIL</span></a></li>
+      <li class="sub">
         <a href="#">REIKI</a>
         <ul class="dropdown">
           <li><a href="{% url 'libeiki:reiki' %}">Qu'est ce que le Reiki?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
-      <li>
+      <li class="sub">
         <a href="#">SOPHROLOGIE</a>
         <ul class="dropdown">
           <li><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la sophrologie?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
-      <li>
+      <li class="sub">
         <a href="#">MASSAGE VISAGE</a>
         <ul class="dropdown">
           <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que le Massage type?</a></li>
@@ -222,7 +267,7 @@
     </div>
 
     <!-- Bouton de menu pour les écrans plus petits -->
-    <div class="menu-icon" onclick="toggleMenu()">
+    <div class="menu-icon" id="menu-small" onclick="toggleMenu()">
       </div>
 
   </nav>
