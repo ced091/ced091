@@ -6,6 +6,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Style pour le texte au-dessus des icônes sociales */
+.social-icons-container, .menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-text {
+  margin-bottom: 10px; /* Ajustez cette valeur selon vos besoins */
+  color: black; /* Choisissez la couleur du texte */
+  font-size: 16px; /* Choisissez la taille de police */
+}
+.title {
+  color:black;
+  margin-top: -30px; 
+}
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -107,26 +123,21 @@
 }
 
 .contenu-principal.menu-open {
-  margin-top: 180px; /* Ajustez la valeur selon la hauteur du sous-menu */
+  margin-top: 155px; /* Ajustez la valeur selon la hauteur du sous-menu */
   transition: margin-top 0.3s ease-out;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
 
 #all-menu {
   text-align: center;
 }
 
-figcaption {
-  font-size: 14px;
-  color: black;
-}
-
 .logo {
   margin-right: 0;
   order: -1;
-  width: 70px;
-  margin-left: 30px;
+  width: 120px;
+  /* margin-left: 30px; */
 }
 
 .dropdown-max {
@@ -173,7 +184,7 @@ ul.dropdown .submenu {
 ul.active {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 8px;
   width: 100%;
   position: absolute;
   top: 120px;
@@ -209,24 +220,26 @@ ul.active {
     contenuPrincipal.classList.toggle('menu-open');
     }
   </script>
-    </head>
-    <body>
-    
-      <nav id="all-menu">
-        <div class="logo-container">
-          <figure>
-          <img src="{% static '/photos/Logo-LIBEIKI1.png' %}" alt="Logo de votre site" class="logo">
-          <figcaption>JOAQUIM Gabrielle
-            <p>06 63 12 72 58</p>
-          </figcaption>
-        </figure>
-        <div class="caption">
-          <p id="nom"></p>
-        </div>
-        </div>  
-        
-        <ul class="dropdown-max">
-          <li><a href="{% url 'libeiki:accueil' %}"><span class="fi-home"> ACCUEIL</span></a></li>
+</head>
+<body>    
+  <nav id="all-menu">    
+    <div class="logo-container">
+      <figure>
+        <img src="{% static '/photos/Logo-LIBEIKI1.png' %}" alt="Logo de votre site" class="logo">
+      </figure>
+      <div class="caption">
+      <p id="nom"></p>
+      </div>
+    </div>  
+    <div class="menu-container">
+    <div class="title">
+      <h3>LIBEIKI</h3>
+    </div>  
+    <!-- Bouton de menu pour les écrans plus petits -->
+    <div class="menu-icon" id="menu-small" onclick="toggleMenu()">
+    </div> 
+    <ul class="dropdown-max">
+      <li><a href="{% url 'libeiki:accueil' %}"><span class="fi-home"> ACCUEIL</span></a></li>
       <li class="sub">
         <a href="#">REIKI</a>
         <ul class="dropdown">
@@ -252,8 +265,11 @@ ul.active {
       <li><a href="{% url 'libeiki:quisuisje' %}">QUI SUIS-JE ?</a></li>
       <li><a href="#">LAISSER UN COMMENTAIRE</a></li>
     </ul>
-
+  </div>
     <!-- Nouvelle structure pour les icônes sociales -->
+    <div class="social-icons-container">
+    <div class="social-text">JOAQUIM Gabrielle</div>
+    <div class="social-text">06 63 12 72 58</div>
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
         <img src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
@@ -265,10 +281,9 @@ ul.active {
         <img src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
       </a>
     </div>
+  </div>
 
-    <!-- Bouton de menu pour les écrans plus petits -->
-    <div class="menu-icon" id="menu-small" onclick="toggleMenu()">
-      </div>
+    
 
   </nav>
 
