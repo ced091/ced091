@@ -16,6 +16,15 @@
     align-items: center;
   }
 
+  body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+
   .social-text {
     margin-bottom: 10px;
     color: black;
@@ -302,7 +311,7 @@
       </li>
       <li><a href="{% url 'libeiki:contact' %}">CONTACT</a></li>
       <li><a href="{% url 'libeiki:quisuisje' %}">QUI SUIS-JE ?</a></li>
-      <li><a href="#">LAISSER UN COMMENTAIRE</a></li>
+      <li><a href="{% url 'libeiki:send_commentaire' %}">LAISSER UN COMMENTAIRE</a></li>
     </ul>
   </div>
     <!-- Nouvelle structure pour les icônes sociales -->

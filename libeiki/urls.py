@@ -13,4 +13,5 @@ urlpatterns = [
     path('numerologie/', views.numerologie, name='numerologie'),
     path('lignee-reiki/', views.lignee_reiki, name="lignee_reiki"),
     path('contact/', views.contact, name='contact'),
+    path('send-commentaire/', views.send_commentaire, name='send_commentaire'),
 ]
