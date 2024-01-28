@@ -1,4 +1,4 @@
-{% extends "ced091/base.html" %}
+{% extends "libeiki/base.html" %}
 
 {% load static %}
 
@@ -102,6 +102,6 @@ Le Reiki est souvent associé à des bienfaits tels que la réduction du stress,
     </div>
     </body>
     <footer>
-        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2024</p>
-      </footer>
+        {% include 'libeiki/footer.html' %}
+    </footer>
 {% endblock %}

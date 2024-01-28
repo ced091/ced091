@@ -1,264 +1,257 @@
-{% block menu %}
+{% extends "libeiki/base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
 
-  <style>
+{% block menu %}
 
-@font-face {
-  font-family: "Simsun";
-  src: url("https://fontsforyou.com/fonts/s/Simsun.ttf");
-}
+<style>
+  @font-face {
+    font-family: "Simsun";
+    src: url("https://fontsforyou.com/fonts/s/Simsun.ttf");
+  }
     /* Style pour le texte au-dessus des icônes sociales */
-.social-icons-container, .menu-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.social-text {
-  margin-bottom: 10px; /* Ajustez cette valeur selon vos besoins */
-  color: black; /* Choisissez la couleur du texte */
-  font-size: 16px; /* Choisissez la taille de police */
-}
-.title {
-  color:black;
-  margin-top: -30px; 
-  text-align: center;
-}
-
-h3 {
-  font-family: "SimSun";
-
-}
-    body {
-      margin: 0;
-      
-    }
-
-    nav {
-      background-color: #76B39B;
-      color: #fff;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    li {
-      margin-right: 20px;
-      position: relative;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-    }
-
-    a:hover {
-      border-bottom: 2px solid #fff;
-    }
-
-    .logo-container {
+  .social-icons-container, .menu-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-    .logo {
-      max-width: 150px;
-      height: auto;
-      padding-left: 0px;
-    }
-
-    figcaption {
-    text-align: center; /* Aligner le texte au centre si nécessaire */
-    color: black;
-
-}
-
-    #nom {
-    margin: 0;
-    color: black;
-}
-
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: -20px;
-      display: none;
-      background-color: #588573;
-      padding: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      white-space: nowrap;
-      z-index: 2;
-    }
-
-    li:hover .dropdown {
-      display: block;
-    }
-
-    .dropdown a {
-      color: black;
-      display: block;
-      z-index: 2;
-    }
-
-    .dropdown {
-      z-index: 10;
-    }
-
-    /* Nouvelle classe pour aligner les éléments à droite */
-    .social-icons {
-      display: flex;
-      align-items: center;
-    }
-
-    .social-icons, .social {
-      margin-right: 10px;
-      z-index: 11;
-    }
-
-    /* Style pour le bouton de menu sur les écrans plus petits */
-    .menu-icon {.social-text {
-  margin-bottom: 10px; /* Ajustez cette valeur selon vos besoins */
-  color: black; /* Choisissez la couleur du texte */
-  font-size: 16px; /* Choisissez la taille de police */
-}
-      display: none;
-      cursor: pointer;
-    }
-
-    a:hover {
-  border-bottom: 2px solid #fff;
-  color: white; /* Changez cette valeur pour définir la nouvelle couleur au survol */
-}
-
-.contenu-principal.menu-open {
-  margin-top: 155px; /* Ajustez la valeur selon la hauteur du sous-menu */
-  transition: margin-top 0.3s ease-out;
-}
-
-@media only screen and (max-width: 1260px) {
+  }
 
   .social-text {
-  font-size: 12px; /* Choisissez la taille de police */
-}
-
-#all-menu {
-  text-align: center;
-}
-
-.logo {
-  margin-right: 0;
-  order: -1;
-  width: 120px;
-  margin-left: -20px;
-}
-
-.dropdown-max {
-  display: none;
-}
-
-ul.dropdown {
-  width: 100%;
-  flex-direction: column;
-  position: relative;
-  z-index: 2;
-}
-
-ul.dropdown .submenu {
-  display: none;
-  padding-left: 20px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #76B39B;
-  z-index: 2;
-}
-
-.sub .has-submenu:hover .submenu {
-  display: block;
-  animation: slideIn 2s ease-out;
-}
-.social-icons {
-  z-index: 3;
-  margin-right: -8px;
-}
-h3{
-  margin-left: -30px;
-}
-
-.menu-icon {
-  display: block;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-  margin-left: -30px;
-}
-
-.menu-icon, .social {
-  width: 50px;
-  height: 50px;
-}
-
-ul.active {
-  display: flex;
-  flex-direction: column;
-  margin-top: 8px;
-  width: 100%;
-  position: absolute;
-  top: 120px;
-  left: 0;
-  background-color: #76B39B;
-  z-index: 2;
-}
-.social {
-  height: 2vh;
-  width: auto;
-}
-
-/* Ajout de l'animation slideIn */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
+    margin-bottom: 10px;
+    color: black;
+    font-size: 16px;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  .title {
+    color:black;
+    margin-top: -30px; 
+    text-align: center;
   }
-}
 
-}
+  h3 {
+    font-family: "SimSun";
+  }
 
-  </style>
+  body {
+    margin: 0;      
+  }
 
-  <!-- Ajout du script JavaScript -->
-  <script>
-    // Fonction pour basculer la classe 'active' du menu
-    function toggleMenu() {
-      var menu = document.querySelector('ul');
-      menu.classList.toggle('active');
-      // Ajouter ou supprimer la classe sur contenu-principal
-    var contenuPrincipal = document.querySelector('.contenu-principal');
-    contenuPrincipal.classList.toggle('menu-open');
+  nav {
+    background-color: #76B39B;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    margin-right: 20px;
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
+  a:hover {
+    border-bottom: 2px solid #fff;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 150px;
+    height: auto;
+    padding-left: 0px;
+  }
+
+  figcaption {
+    text-align: center; 
+    color: black;
+  }
+
+  #nom {
+    margin: 0;
+    color: black;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    display: none;
+    background-color: #588573;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  li:hover .dropdown {
+    display: block;
+  }
+
+  .dropdown a {
+    color: black;
+    display: block;
+    z-index: 2;
+  }
+
+  .dropdown {
+    z-index: 10;
+  }
+
+  /* Nouvelle classe pour aligner les éléments à droite */
+  .social-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-icons, .social {
+    margin-right: 10px;
+    z-index: 11;
+  }
+
+  /* Style pour le bouton de menu sur les écrans plus petits */
+  .menu-icon {.social-text {
+    margin-bottom: 10px; /* Ajustez cette valeur selon vos besoins */
+    color: black; /* Choisissez la couleur du texte */
+    font-size: 16px; /* Choisissez la taille de police */
+  }
+    display: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    border-bottom: 2px solid #fff;
+    color: white; /* Changez cette valeur pour définir la nouvelle couleur au survol */
+  }
+
+  .contenu-principal.menu-open {
+    margin-top: 155px; /* Ajustez la valeur selon la hauteur du sous-menu */
+    transition: margin-top 0.3s ease-out;
+  }
+
+  @media only screen and (max-width: 1260px) {
+
+    .social-text {
+      font-size: 12px; /* Choisissez la taille de police */
     }
-  </script>
-</head>
+
+    #all-menu {
+      text-align: center;
+    }
+
+    .logo {
+      margin-right: 0;
+      order: -1;
+      width: 120px;
+      margin-left: -20px;
+    }
+
+    .dropdown-max {
+      display: none;
+    }
+
+    ul.dropdown {
+      width: 100%;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+
+    ul.dropdown .submenu {
+      display: none;
+      padding-left: 20px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #76B39B;
+      z-index: 2;
+    }
+
+    .sub .has-submenu:hover .submenu {
+      display: block;
+      animation: slideIn 2s ease-out;
+    }
+
+    .social-icons {
+      z-index: 3;
+      margin-right: -8px;
+    }
+
+    h3{
+      margin-left: -30px;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      z-index: 3;
+      margin-left: -30px;
+    }
+
+    .menu-icon, .social {
+      width: 50px;
+      height: 50px;
+    }
+
+    ul.active {
+      display: flex;
+      flex-direction: column;
+      margin-top: 8px;
+      width: 100%;
+      position: absolute;
+      top: 120px;
+      left: 0;
+      background-color: #76B39B;
+      z-index: 2;
+    }
+      
+    .social {
+      height: 2vh;
+      width: auto;
+    }
+
+    /* Ajout de l'animation slideIn */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+</style>
+
+<!-- Ajout du script JavaScript -->
+<script>
+  // Fonction pour basculer la classe 'active' du menu
+  function toggleMenu() {
+    var menu = document.querySelector('ul');
+    menu.classList.toggle('active');
+    // Ajouter ou supprimer la classe sur contenu-principal
+  var contenuPrincipal = document.querySelector('.contenu-principal');
+  contenuPrincipal.classList.toggle('menu-open');
+  }
+</script>
 <body>    
   <nav id="all-menu">    
     <div class="logo-container">
@@ -314,25 +307,20 @@ ul.active {
   </div>
     <!-- Nouvelle structure pour les icônes sociales -->
     <div class="social-icons-container">
-    <div class="social-text">JOAQUIM Gabrielle</div>
-    <div class="social-text">06 63 12 72 58</div>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/Libeiki" target="_blank">
-        <img class=social src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
-      </a>
-      <a href="https://www.instagram.com/libeiki/" target="_blank">
-        <img class=social src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
-      </a>
-      <a href="mailto:libellule_1982@hotmail.com" target="_blank">
-        <img class=social src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
-      </a>
+      <div class="social-text">JOAQUIM Gabrielle</div>
+      <div class="social-text">06 63 12 72 58</div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Libeiki" target="_blank">
+          <img class=social src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
+        </a>
+        <a href="https://www.instagram.com/libeiki/" target="_blank">
+          <img class=social src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
+        </a>
+        <a href="mailto:libellule_1982@hotmail.com" target="_blank">
+          <img class=social src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
+        </a>
+      </div>
     </div>
-  </div>
-
-    
-
   </nav>
-
 </body>
-</html>
 {% endblock %}

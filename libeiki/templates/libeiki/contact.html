@@ -1,4 +1,4 @@
-{% extends "ced091/base.html" %}
+{% extends "libeiki/base.html" %}
 
 {% load static %}
 
@@ -38,14 +38,6 @@ color:white;
     text-align: right;
 }
 
-footer {
-    background-color: #76B39B;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-size: 12px;
-}
-
 .fi-telephone,.fi-mail, .fi-social-facebook, .fi-social-instagram {
     font-size: 30px;
     color:white;
@@ -71,14 +63,6 @@ font-size: 18px;
 .nom, .email, .facebook, .instagram {
     font-size: 18px;
     color:white;
-}
-
-footer {
-    background-color: #76B39B;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-size: 9px;
 }
 }
 </style>
@@ -114,7 +98,7 @@ footer {
 
     </div>
     </body>
-    <footer>
-        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2024</p>
-      </footer>
+<footer>
+    {% include 'libeiki/footer.html' %}
+</footer>
 {% endblock %}

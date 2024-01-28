@@ -74,14 +74,6 @@ p {
     padding: 15px;
 } 
 
-footer {
-    background-color: #76B39B;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-size: 12px;
-}
-
 .orbit-previous, .orbit-next {
     margin-top: 20px; /* Ajustez la valeur selon vos besoins */
     color: black;
@@ -99,13 +91,7 @@ footer {
     font-size: 16px;
 }
 
-footer {
-    background-color: #76B39B;
-    color: white;
-    padding: 10px;
-    text-align: center; 
-    font-size: 9px;
-}
+
 
 #intro {
   font-size: 18px;
@@ -182,6 +168,6 @@ footer {
   </div>
 </body>
 <footer>
-  <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2024</p>
-</footer>
+{% include 'libeiki/footer.html' %}
+<footer>
 {% endblock %}
