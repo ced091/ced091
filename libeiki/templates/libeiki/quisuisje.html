@@ -44,7 +44,7 @@ footer {
     font-size: 12px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1200px) {
 
 .intro {
 
@@ -58,15 +58,34 @@ footer {
     text-align: center;
     font-size: 9px;
 }
+
+.media-object {
+        flex-direction: column-reverse;
+    }
+
+    .media-object-section {
+        width: 100%;
+    }
+
+    .thumbnail {
+        margin-bottom: 100px; /* Adjust as needed */
+    }
+
+    .lignee {
+        top: 0;
+        left: 0;
+        height: auto;
+    }
 }
 </style>
 
 <body>
     <div class="contenu-principal">                
-                <div class="grid-container">     
-                              
-                    <p class="intro">
-                        Qui suis-je ? <br> <br>
+                <div class="grid-container">
+                      
+                    
+                      <h4>Qui suis-je ?</h4>
+                      <p class="intro">
 
                         Permettez-moi de vous présenter Gabrielle, une femme au parcours riche et dévouée au bien-être. 
                         Pendant deux décennies, elle a exercé avec passion le métier d'assistante dentaire, 
@@ -82,10 +101,14 @@ footer {
                         où le souci de soi prend le devant de la scène. Avec son expérience et sa passion, 
                         elle invite chacun à embarquer pour un voyage de détente et d'harmonie.                       
                     </p>
-                    
+                
+                <div class="thumbnail" style="text-align: center;">
+                    <img class="lignee" src="{% static '/photos/lignee_reiki.png' %}" alt="Logo de votre site" class="logo">
+                  </div>
                 </div>
-
     </div>
+
+
     </body>
     <footer>
         <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2023</p>

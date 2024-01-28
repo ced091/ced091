@@ -5,6 +5,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
   <style>
     /* Style pour le texte au-dessus des icônes sociales */
 .social-icons-container, .menu-container {
@@ -106,7 +109,7 @@
       align-items: center;
     }
 
-    .social-icons img {
+    .social-icons, .social {
       margin-right: 10px;
       z-index: 11;
     }
@@ -131,7 +134,7 @@
   transition: margin-top 0.3s ease-out;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1260px) {
 
   .social-text {
   font-size: 12px; /* Choisissez la taille de police */
@@ -184,7 +187,7 @@ ul.dropdown .submenu {
   z-index: 3;
 }
 
-.menu-icon img {
+.menu-icon, .social {
   width: 50px;
   height: auto;
 }
@@ -199,6 +202,10 @@ ul.active {
   left: 0;
   background-color: #76B39B;
   z-index: 2;
+}
+.social {
+  height: 2vh;
+  width: auto;
 }
 
 /* Ajout de l'animation slideIn */
@@ -256,16 +263,23 @@ ul.active {
         </ul>
       </li>
       <li class="sub">
-        <a href="#">SOPHROLOGIE</a>
+        <a href="#">NUMEROLOGIE</a>
         <ul class="dropdown">
-          <li><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la sophrologie?</a></li>
+          <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que la Numérologie?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
-      </li>
+      </li>      
       <li class="sub">
         <a href="#">MASSAGE VISAGE</a>
         <ul class="dropdown">
           <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que le Massage type?</a></li>
+          <li><a href="#">Tarifs</a></li>
+        </ul>
+      </li>
+      <li class="sub">
+        <a href="#">SOPHROLOGIE</a>
+        <ul class="dropdown">
+          <li><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la sophrologie?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
@@ -280,13 +294,13 @@ ul.active {
     <div class="social-text">06 63 12 72 58</div>
     <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
-        <img src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
+        <img class=social src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
       </a>
       <a href="https://www.instagram.com/votre_compte_instagram/" target="_blank">
-        <img src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
+        <img class=social src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
       </a>
       <a href="mailto:libellule_1982@hotmail.com" target="_blank">
-        <img src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
+        <img class=social src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
       </a>
     </div>
   </div>
