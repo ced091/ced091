@@ -104,6 +104,7 @@ h3 {
       padding: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       white-space: nowrap;
+      z-index: 2;
     }
 
     li:hover .dropdown {
@@ -113,6 +114,11 @@ h3 {
     .dropdown a {
       color: black;
       display: block;
+      z-index: 2;
+    }
+
+    .dropdown {
+      z-index: 10;
     }
 
     /* Nouvelle classe pour aligner les éléments à droite */
