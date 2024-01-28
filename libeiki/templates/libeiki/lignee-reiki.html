@@ -1,0 +1,80 @@
+{% extends "ced091/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+h4, .thumbnail {
+    text-align: center;
+}
+
+p {
+    margin-bottom: 5px;
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.intro {
+
+font-size: 18px;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 9px;
+}
+}
+</style>
+
+<body>
+    <div class="contenu-principal">                
+                <div class="grid-container">    
+                    
+                    <h4>Lignée Reiki</h4>
+                    
+                    
+                              
+                    <p class="intro">   
+                        <div style="text-align: center;">
+                            <img class="lignee" src="{% static '/photos/lignee_reiki.png' %}" alt="Logo de votre site" class="logo" style="text-align: center;">
+                          </div>
+                        </div>                    
+                        
+                    </p>
+                    
+                </div>
+
+    </div>
+    </body>
+    <footer>
+        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2024</p>
+      </footer>
+{% endblock %}

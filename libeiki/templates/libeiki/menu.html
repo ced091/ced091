@@ -186,7 +186,7 @@ ul.dropdown .submenu {
 
 .sub .has-submenu:hover .submenu {
   display: block;
-  animation: slideIn 0.3s ease-out;
+  animation: slideIn 2s ease-out;
 }
 .social-icons {
   z-index: 3;
@@ -277,30 +277,31 @@ ul.active {
         <ul class="dropdown">
           <li><a href="{% url 'libeiki:reiki' %}">Qu'est ce que le Reiki?</a></li>
           <li><a href="#">Tarifs</a></li>
+          <li><a href="{% url 'libeiki:lignee_reiki' %}">Lignée Reiki</a></li>
         </ul>
       </li>
       <li class="sub">
         <a href="#">NUMEROLOGIE</a>
         <ul class="dropdown">
-          <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que la Numérologie?</a></li>
+          <li><a href="{% url 'libeiki:numerologie' %}">Qu'est ce que la Numérologie?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
       </li>      
       <li class="sub">
-        <a href="#">MASSAGE VISAGE</a>
+        <a href="#">MASSAGE BAGUETTE KANSA</a>
         <ul class="dropdown">
-          <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que le Massage type?</a></li>
+          <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que le Massage Baguette Kansa?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
       <li class="sub">
         <a href="#">SOPHROLOGIE</a>
         <ul class="dropdown">
-          <li><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la sophrologie?</a></li>
+          <li><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la Sophrologie?</a></li>
           <li><a href="#">Tarifs</a></li>
         </ul>
       </li>
-      <li><a href="#">CONTACT</a></li>
+      <li><a href="{% url 'libeiki:contact' %}">CONTACT</a></li>
       <li><a href="{% url 'libeiki:quisuisje' %}">QUI SUIS-JE ?</a></li>
       <li><a href="#">LAISSER UN COMMENTAIRE</a></li>
     </ul>

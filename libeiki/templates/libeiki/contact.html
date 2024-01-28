@@ -1,0 +1,122 @@
+{% extends "ced091/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+}
+h3 {
+    text-align: center;
+}
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: black;
+}
+
+.intro {
+
+font-size: 18px;
+text-align: center;
+color:white;
+}
+
+.reiki_signe {
+    text-align: right;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.fi-telephone,.fi-mail, .fi-social-facebook, .fi-social-instagram {
+    font-size: 30px;
+    color:white;
+}
+
+.nom, .email, .facebook, .instagram {
+    font-size: 30px;
+    color:white;
+}
+
+@media only screen and (max-width: 1200px) {
+
+.intro {
+
+font-size: 18px;
+}
+
+.fi-telephone,.fi-mail, .fi-social-facebook, .fi-social-instagram {
+    font-size: 18px;
+    color:white;
+}
+
+.nom, .email, .facebook, .instagram {
+    font-size: 18px;
+    color:white;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 9px;
+}
+}
+</style>
+
+<body>    <div class="contenu-principal">                
+                <div class="grid-container">    
+                    
+                    <h3 style="font-weight: bold;"">ME CONTACTER </h3>                                
+                    <p class="nom">                        
+                        JOAQUIM Gabrielle
+                    </p>
+                    <p class="intro fi-telephone" >                        
+                        : 06 63 12 72 58
+                    </p>
+                    <p class="intro fi-mail">
+                         : 
+                            <a  class="email" href="mailto:libellule_1982@hotmail.com" target="_blank" style="padding-left: 15px;">
+                                libellule_1982@hotmail.com
+                            </a>
+                    </p>
+                    <p class="intro fi-social-facebook">
+                        :
+                        <a class="facebook" href="https://www.facebook.com/profile.php?id=100055443685243" target="_blank">
+                            @gabrielle sur facebook
+                        </a>
+                    </p>
+                    <p class="intro fi-social-instagram">        
+                        :                 
+                        <a href="https://www.instagram.com/votre_compte_instagram/" target="_blank" class="instagram">
+                            @gabrielle sur instagram
+                          </a>
+                    </p>
+                    
+                </div>
+
+    </div>
+    </body>
+    <footer>
+        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2024</p>
+      </footer>
+{% endblock %}

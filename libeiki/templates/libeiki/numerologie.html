@@ -1,0 +1,83 @@
+{% extends "ced091/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+}
+
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    color: black;
+}
+
+.intro {
+
+font-size: 18px;
+text-align: justify;
+color:white;
+}
+
+.reiki_signe {
+    text-align: right;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.intro {
+
+font-size: 18px;
+}
+
+footer {
+    background-color: #76B39B;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 9px;
+}
+}
+</style>
+
+<body>
+    <div class="contenu-principal">                
+                <div class="grid-container">    
+                    
+                    <h4>Qu’est-ce que la Numérologie ?</h4>
+                    
+                    
+                              
+                    <p class="intro">                        
+                        
+                    </p>
+                    
+                </div>
+
+    </div>
+    </body>
+    <footer>
+        <p>LIBEIKI © Gabrielle JOAQUIM - SIRET - XXX XXX XXX XXXXX - www.libeiki.fr - 2024</p>
+      </footer>
+{% endblock %}
