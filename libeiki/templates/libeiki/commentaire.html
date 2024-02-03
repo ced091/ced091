@@ -8,6 +8,13 @@
 
 {% block content %}
 
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <style>
     .button.secondary{
         text-align: center;
@@ -70,20 +77,11 @@
       margin-top: 20px; /* Ajustez la marge pour déplacer le texte plus bas */
     }
   </style>
-</head>
-<body>
   
 
   
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Récupère l'élément input par son ID
-    var champNote = document.getElementById('id_note');
-
-    // Rend le champ invisible en modifiant la propriété CSS
-    champNote.style.visibility = 'hidden';
-});
     function changeColor(element) {
       // Récupère toutes les étoiles dans le même conteneur
       var stars = document.querySelectorAll('.star');
@@ -117,12 +115,6 @@
         champNote.value = yellowStars.length;
     }
   </script>
-</style>
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
 
 <div class="grid-container">
     <div class="grid-x formulaire">
