@@ -20,7 +20,9 @@
         text-align: center;
         background-color: black;
     }
-
+    .titre {
+        font-size: 28px;
+    }
     .star-rating {
         font-size: 24px;
         color: #ddd;
@@ -127,9 +129,9 @@
     <div class="grid-x formulaire">
         <form method="post" action="{% url 'libeiki:send_commentaire' %}">
             {% csrf_token %}
-            <div><p>Pseudo : {{ form.pseudo }}</p></div>
+            <div><p><span class="titre">Pseudo :</span> {{ form.pseudo }}</p></div>
             <div>
-            <p>note :
+            <p><span class="titre">note :</span>
                 <div class="star-container">
                     <div class="star" onclick="changeColor(this)"></div>
                     <div class="star" onclick="changeColor(this)"></div>
@@ -140,7 +142,7 @@
             </p>
             </div><p>{{ form.note }}</p> 
             
-            <div><p>Commentaire : {{ form.texte }}</p></div>
+            <div><p><span class="titre">Commentaire : </span>{{ form.texte }}</p></div>
             
             <button class="button secondary" type="submit">Soumettre</button>
         </form>
