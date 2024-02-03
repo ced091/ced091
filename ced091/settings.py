@@ -148,3 +148,5 @@ STATIC_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_TRUSTED_ORIGINS = ['https://ced091.fr.nf/']
