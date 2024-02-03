@@ -1,0 +1,154 @@
+{% extends "libeiki/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .button.secondary{
+        text-align: center;
+        background-color: black;
+    }
+
+    .star-rating {
+        font-size: 24px;
+        color: #ddd;
+    }
+
+    .star-rating .star {
+        cursor: pointer;
+    }
+
+    .star-rating .active {
+        color: #ffcc00;
+    }
+   
+    .formulaire {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .star-container {
+      display: flex;
+    }
+
+    .star {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      margin-right: 5px; /* Espacement entre les étoiles (modifiable) */
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black; /* Bordure noire de 1 pixel */
+      border-radius: 50%; /* Utilisez la bordure arrondie pour obtenir une forme d'étoile */
+      box-sizing: border-box; /* Inclure la bordure dans la largeur et la hauteur */
+    }
+
+    .star::before {
+      content: '\2605'; /* Caractère d'étoile Unicode */
+      font-size: 30px; /* Taille de la police de l'étoile */
+      color: white; /* Couleur de l'étoile */
+    }
+
+    .star.clicked::before {
+      color: #d4af37; /* Couleur de l'étoile jaune plus sombre au clic */
+    }
+
+    .star.transparent::before {
+      color: transparent !important; /* Rend l'étoile transparente */
+      border: 1px solid transparent !important; /* Rend la bordure transparente */
+    }
+
+    #yellowCount {
+      margin-top: 20px; /* Ajustez la marge pour déplacer le texte plus bas */
+    }
+  </style>
+</head>
+<body>
+  
+
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Récupère l'élément input par son ID
+    var champNote = document.getElementById('id_note');
+
+    // Rend le champ invisible en modifiant la propriété CSS
+    champNote.style.display = 'none';
+});
+    function changeColor(element) {
+      // Récupère toutes les étoiles dans le même conteneur
+      var stars = document.querySelectorAll('.star');
+
+      // Récupère l'index de l'étoile cliquée
+      var clickedIndex = Array.from(stars).indexOf(element);
+
+      // Parcours les étoiles et applique la couleur jaune aux étoiles à gauche
+      for (var i = 0; i <= clickedIndex; i++) {
+        stars[i].classList.add('clicked');
+        stars[i].classList.remove('transparent');
+      }
+
+      // Parcours les étoiles et rend les étoiles à droite transparentes
+      for (var i = clickedIndex + 1; i < stars.length; i++) {
+        stars[i].classList.add('transparent');
+        stars[i].classList.remove('clicked');
+      }
+
+      // Met à jour le nombre d'étoiles jaunes affiché
+      updateYellowCount();
+    }
+
+    function updateYellowCount() {
+      var yellowStars = document.querySelectorAll('.star.clicked');
+      document.getElementById('id_note').innerText = yellowStars.length;
+      // Récupère l'élément input par son ID
+        var champNote = document.getElementById('id_note');
+
+        // Définit la valeur du champ
+        champNote.value = yellowStars.length;
+    }
+  </script>
+</style>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="grid-container">
+    <div class="grid-x formulaire">
+        <form method="post" action="{% url 'libeiki:send_commentaire' %}">
+            {% csrf_token %}
+            <div><p>Pseudo : {{ form.pseudo }}</p></div>
+            <div>
+            <p>note :
+                <div class="star-container">
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                  </div>
+            </p>
+            </div><p>{{ form.note }}</p> 
+            
+            <div><p>Commentaire : {{ form.texte }}</p></div>
+            
+            <button class="button secondary" type="submit">Soumettre</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    
+</script>
+{% endblock %}

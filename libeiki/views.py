@@ -25,6 +25,17 @@ def lignee_reiki(request):
 def contact(request):
     return render(request, "libeiki/contact.html")
 
+def generer_star_rating(value):
+    return [
+        {
+            'index': x,
+            'active': x <= value,
+            'value': x / 2,
+            'checked': x / 2 == value,
+        }
+        for x in range(1, 11)
+    ]
+
 def send_commentaire(request):
     
     print(request.POST)
@@ -41,5 +52,6 @@ def send_commentaire(request):
             
     context ={
         'form': form,
+        'star_data': 5,
     }
     return render(request, "libeiki/commentaire.html", context)
