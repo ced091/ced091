@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .forms import CommentaireForm
 
+from django.views.decorators.csrf import csrf_protect
+
 def accueil(request):
     return render(request, "libeiki/accueil.html")
 
@@ -36,6 +38,7 @@ def generer_star_rating(value):
         for x in range(1, 11)
     ]
 
+@csrf_protect
 def send_commentaire(request):
     
     print(request.POST)
