@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from .forms import CommentaireForm
+from django.core.mail import send_mail
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Commentaire
+
+def envoyer_email_apres_soumission(commentaire, **kwargs):
+    sujet = "Nouvelle soumission de commentaire LIBEIKI"
+    message = f"Un nouveau commentaire a été soumis le {commentaire.date_com}.\n Voici son contenu : {commentaire.texte}. \n Sa note  : {commentaire.note}. \n Le pseudo : {commentaire.pseudo} \n Vous pouvez le rendre visible sur le site en cochant la case 'visible' dans le mode admin de votre site/admin.\n Tchuss."
+    destinataires = ["libellule_1982@hotmail.com, ced091@hotmail.fr"]
+    send_mail(sujet, message, 'ikiebil92@hotmail.com', destinataires)
 
 def accueil(request):
     commentaires = Commentaire.objects.filter(visible=True)
@@ -68,8 +75,9 @@ def send_commentaire(request):
     if request.POST:
         form = CommentaireForm(request.POST)
         if form.is_valid():
-            form.save()
+            comm = form.save()
             print("merci pour votre contribution")
+            envoyer_email_apres_soumission(comm)
             return render(request, "libeiki/accueil.html")
         else:
             print(f"erreurs suivantes : {form.errors}  ")
