@@ -9,7 +9,7 @@ from .models import Commentaire
 def envoyer_email_apres_soumission(commentaire, **kwargs):
     sujet = "Nouvelle soumission de commentaire LIBEIKI"
     message = f"Un nouveau commentaire a été soumis le {commentaire.date_com}.\n Voici son contenu : {commentaire.texte}. \n Sa note  : {commentaire.note}. \n Le pseudo : {commentaire.pseudo} \n Vous pouvez le rendre visible sur le site en cochant la case 'visible' dans le mode admin de votre site/admin.\n Tchuss."
-    destinataires = ["libellule_1982@hotmail.com, ced091@hotmail.fr"]
+    destinataires = ["libellule_1982@hotmail.com", "ced091@hotmail.fr"]
     send_mail(sujet, message, 'ikiebil92@hotmail.com', destinataires)
 
 def accueil(request):
