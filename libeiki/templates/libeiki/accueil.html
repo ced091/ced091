@@ -236,17 +236,17 @@ p {
         <div class="pagination">
           <span class="step-links">
             {% if commentaires.has_previous %}
-              <a href="?page=1#comments-section">&laquo; first</a>
-              <a href="?page={{ commentaires.previous_page_number }}#comments-section">previous</a>
+              <a href="?page=1#comments-section">&laquo; premier</a>
+              <a href="?page={{ commentaires.previous_page_number }}#comments-section">précédant</a>
             {% endif %}
         
             <span class="current">
-              Page {{ commentaires.number }} of {{ commentaires.paginator.num_pages }}.
+              Page {{ commentaires.number }} de {{ commentaires.paginator.num_pages }}.
             </span>
         
             {% if commentaires.has_next %}
-              <a href="?page={{ commentaires.next_page_number }}#comments-section">next</a>
-              <a href="?page={{ commentaires.paginator.num_pages }}#comments-section">last &raquo;</a>
+              <a href="?page={{ commentaires.next_page_number }}#comments-section">suivant</a>
+              <a href="?page={{ commentaires.paginator.num_pages }}#comments-section">dernier &raquo;</a>
             {% endif %}
           </span>
         </div>
