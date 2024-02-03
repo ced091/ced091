@@ -212,7 +212,7 @@ p {
 
         <p class="comments" id="comments-section" style="font-size: 35px;">Ils nous racontent leur expérience chez LIBEIKI</p>
         {% for commentaire in commentaires %} 
-        <div class="callout" id="commentaire{{ commentaire.id }}" style="background-color: #76B39B; width:50%; margin: auto; margin-bottom: 30px;">              
+        <div class="callout" id="commentaire{{ commentaire.id }}" style="background-color: transparent; width:70%; margin: auto; margin-bottom: 30px;">              
           <div style="font-weight: bold; font-size: 25px;">
             {{ commentaire.pseudo}}
           </div>
@@ -227,7 +227,10 @@ p {
                 {% endfor %}
                 </div>
           </p>
-          </div>          
+          </div>  
+          <div class="date_com">
+            le {{ commentaire.date_com }}
+          </div>        
         </div>
         {% endfor %}
         <div class="pagination">
@@ -247,15 +250,6 @@ p {
             {% endif %}
           </span>
         </div>
-        
-        
-      
-      
-      
-      
-
-      
-
       </div>
     </div>
     {% endif %}
