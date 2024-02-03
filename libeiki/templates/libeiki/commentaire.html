@@ -82,6 +82,13 @@
   
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Récupère l'élément input par son ID
+    var champNote = document.getElementById('id_note');
+
+    // Rend le champ invisible en modifiant la propriété CSS
+    champNote.style.visibility = 'hidden';
+});
     function changeColor(element) {
       // Récupère toutes les étoiles dans le même conteneur
       var stars = document.querySelectorAll('.star');
@@ -107,17 +114,29 @@
 
     function updateYellowCount() {
       var yellowStars = document.querySelectorAll('.star.clicked');
-      
+      document.getElementById('id_note').innerText = yellowStars.length;
+      // Récupère l'élément input par son ID
+        var champNote = document.getElementById('id_note');
+
+        // Définit la valeur du champ
+        champNote.value = yellowStars.length;
     }
   </script>
 
 <div class="grid-container">
     <div class="grid-x formulaire">
         <form method="post" action="{% url 'libeiki:send_commentaire' %}">
-            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            {% csrf_token %}
             <div><p>Pseudo : {{ form.pseudo }}</p></div>
             <div>
             <p>note :
+                <div class="star-container">
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                    <div class="star" onclick="changeColor(this)"></div>
+                  </div>
             </p>
             </div><p>{{ form.note }}</p> 
             
