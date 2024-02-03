@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load custom_tags %}
+
 {% block menu %}
     {% include 'libeiki/menu.html' %}
 {% endblock %}
@@ -86,6 +88,37 @@ p {
     margin: 0 10px;  /* Ajustez la marge selon vos préférences */
   }
 
+  .star {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      margin-right: 5px; /* Espacement entre les étoiles (modifiable) */
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0px solid black; /* Bordure noire de 1 pixel */
+      border-radius: 50%; /* Utilisez la bordure arrondie pour obtenir une forme d'étoile */
+      box-sizing: border-box; /* Inclure la bordure dans la largeur et la hauteur */
+    }
+
+    .star::before {
+      content: '\2605'; /* Caractère d'étoile Unicode */
+      font-size: 30px; /* Taille de la police de l'étoile */
+      color: #d4af37; /* Couleur de l'étoile */
+    }
+
+    .star-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .callout {
+    /* Autres styles pour votre callout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 @media only screen and (max-width: 768px) {
 
 .custom-text-container {
@@ -172,19 +205,28 @@ p {
         façonnée selon vos besoins, vous offre le bien-être dans le confort de votre domicile, 
         où chaque aspect de votre vie prend vie de manière harmonieuse.</p>
     </div>
+    {% if commentaires %}
     <div class="grid-container commentaire" style="background-color: transparent; padding-top: 50px;">
+
       <div class="callout" style="background-color: transparent;">
+
         <p class="comments" id="comments-section" style="font-size: 35px;">Ils nous racontent leur expérience chez LIBEIKI</p>
         {% for commentaire in commentaires %} 
         <div class="callout" id="commentaire{{ commentaire.id }}" style="background-color: #76B39B; width:50%; margin: auto; margin-bottom: 30px;">              
-          <div>
-            PSEUDO : {{ commentaire.pseudo}}
+          <div style="font-weight: bold; font-size: 25px;">
+            {{ commentaire.pseudo}}
+          </div>
+          <div style="font-style: italic; font-size: 20px;">
+            '' {{ commentaire.texte|linebreaksbr }} ''
           </div>
           <div>
-            COMMENTAIRE : {{ commentaire.texte|linebreaksbr }}
-          </div>
-          <div>
-            NOTE : {{ commentaire.note}}
+            <p>
+              <div class="star-container">
+                {% for i in commentaire.note|get_range %}
+                  <div class="star"></div>
+                {% endfor %}
+                </div>
+          </p>
           </div>          
         </div>
         {% endfor %}
@@ -216,6 +258,7 @@ p {
 
       </div>
     </div>
+    {% endif %}
   </div>
 </body>
 <script>

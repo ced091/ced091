@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Commentaire
 
 def accueil(request):
-    commentaires = Commentaire.objects.all()
+    commentaires = Commentaire.objects.filter(visible=True)
 
     # Définissez le nombre d'éléments par page
     elements_par_page = 5
