@@ -1,10 +1,34 @@
 from django.shortcuts import render
 from .forms import CommentaireForm
 
-from django.views.decorators.csrf import csrf_protect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from .models import Commentaire
 
 def accueil(request):
-    return render(request, "libeiki/accueil.html")
+    commentaires = Commentaire.objects.all()
+
+    # Définissez le nombre d'éléments par page
+    elements_par_page = 5
+
+    # Initialisez l'objet Paginator avec la liste des commentaires et le nombre d'éléments par page
+    paginator = Paginator(commentaires, elements_par_page)
+
+    # Obtenez le numéro de la page à partir des paramètres de requête
+    page = request.GET.get('page')
+    try:
+        # Obtenez les commentaires pour la page spécifiée
+        commentaires_page = paginator.page(page)
+    except PageNotAnInteger:
+        # Si la page n'est pas un entier, affichez la première page
+        commentaires_page = paginator.page(1)
+    except EmptyPage:
+        # Si la page est hors de portée (par exemple, 9999), affichez la dernière page
+        commentaires_page = paginator.page(paginator.num_pages)
+    context = {
+        "commentaires": commentaires_page
+    }
+    return render(request, "libeiki/accueil.html", context)
 
 def reiki(request):
     return render(request, "libeiki/reiki.html")
@@ -38,7 +62,6 @@ def generer_star_rating(value):
         for x in range(1, 11)
     ]
 
-@csrf_protect
 def send_commentaire(request):
     
     print(request.POST)

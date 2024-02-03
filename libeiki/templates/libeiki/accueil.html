@@ -70,6 +70,22 @@ p {
     color: black;
 }
 
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .current {
+    margin: 0 10px;  /* Ajustez la marge selon vos préférences */
+  }
+
 @media only screen and (max-width: 768px) {
 
 .custom-text-container {
@@ -156,8 +172,80 @@ p {
         façonnée selon vos besoins, vous offre le bien-être dans le confort de votre domicile, 
         où chaque aspect de votre vie prend vie de manière harmonieuse.</p>
     </div>
+    <div class="grid-container commentaire" style="background-color: transparent; padding-top: 50px;">
+      <div class="callout" style="background-color: transparent;">
+        <p class="comments" id="comments-section" style="font-size: 35px;">Ils nous racontent leur expérience chez LIBEIKI</p>
+        {% for commentaire in commentaires %} 
+        <div class="callout" id="commentaire{{ commentaire.id }}" style="background-color: #76B39B; width:50%; margin: auto; margin-bottom: 30px;">              
+          <div>
+            PSEUDO : {{ commentaire.pseudo}}
+          </div>
+          <div>
+            COMMENTAIRE : {{ commentaire.texte|linebreaksbr }}
+          </div>
+          <div>
+            NOTE : {{ commentaire.note}}
+          </div>          
+        </div>
+        {% endfor %}
+        <div class="pagination">
+          <span class="step-links">
+            {% if commentaires.has_previous %}
+              <a href="?page=1#comments-section">&laquo; first</a>
+              <a href="?page={{ commentaires.previous_page_number }}#comments-section">previous</a>
+            {% endif %}
+        
+            <span class="current">
+              Page {{ commentaires.number }} of {{ commentaires.paginator.num_pages }}.
+            </span>
+        
+            {% if commentaires.has_next %}
+              <a href="?page={{ commentaires.next_page_number }}#comments-section">next</a>
+              <a href="?page={{ commentaires.paginator.num_pages }}#comments-section">last &raquo;</a>
+            {% endif %}
+          </span>
+        </div>
+        
+        
+      
+      
+      
+      
+
+      
+
+      </div>
+    </div>
   </div>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fonction pour gérer le défilement vers la classe "comments"
+    function scrollToComments() {
+      const commentsSection = document.getElementById('comments-section');
+      if (commentsSection) {
+        commentsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Ajouter un gestionnaire d'événements aux liens de pagination
+    const paginationLinks = document.querySelectorAll('.pagination a');
+    paginationLinks.forEach(function(link) {
+      link.addEventListener('click', scrollToComments);
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
 <footer>
 {% include 'libeiki/footer.html' %}
 <footer>
