@@ -114,7 +114,7 @@
 <div class="grid-container">
     <div class="grid-x formulaire">
         <form method="post" action="{% url 'libeiki:send_commentaire' %}">
-            {% csrf_token %}
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
             <div><p>Pseudo : {{ form.pseudo }}</p></div>
             <div>
             <p>note :
