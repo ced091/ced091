@@ -1,0 +1,39 @@
+{% extends "libeiki/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+}
+
+h4 {
+    font-family: "Dosis", sans-serif;
+    text-align: center;
+}
+</style>
+
+<body>
+    <div class="contenu-principal">                
+        <div class="grid-container">  
+            <h4>Tarifs scéance de Reiki </h4> 
+            <p>
+                Séance à domicile : €
+            </p>
+            <p>
+                Séance à distance : €
+            </p>
+        </div>
+    </div>
+</body>
+{% endblock %}

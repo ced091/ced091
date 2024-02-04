@@ -58,6 +58,9 @@ def lignee_reiki(request):
 def contact(request):
     return render(request, "libeiki/contact.html")
 
+def tarif_reiki(request):
+    return render(request, "libeiki/tarif-reiki.html")
+
 def generer_star_rating(value):
     return [
         {
