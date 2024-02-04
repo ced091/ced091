@@ -61,6 +61,9 @@ def contact(request):
 def tarif_reiki(request):
     return render(request, "libeiki/tarif-reiki.html")
 
+def tarif_numerologie(request):
+    return render(request, "libeiki/tarif-numerologie.html")
+
 def generer_star_rating(value):
     return [
         {
