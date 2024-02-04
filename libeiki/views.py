@@ -64,6 +64,12 @@ def tarif_reiki(request):
 def tarif_numerologie(request):
     return render(request, "libeiki/tarif-numerologie.html")
 
+def tarif_massage(request):
+    return render(request, "libeiki/tarif-massage.html")
+
+def tarif_sophrologie(request):
+    return render(request, "libeiki/tarif-sophrologie.html")
+
 def generer_star_rating(value):
     return [
         {
