@@ -46,8 +46,8 @@ def numerologie(request):
 def quisuisje(request):
     return render(request, "libeiki/quisuisje.html")
 
-def visage(request):
-    return render(request, "libeiki/visage.html")
+def massage(request):
+    return render(request, "libeiki/massage.html")
 
 def sophrologie(request):
     return render(request, "libeiki/sophrologie.html")
