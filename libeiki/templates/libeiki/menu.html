@@ -54,14 +54,14 @@
     justify-content: space-between;
   }
 
-  ul {
+  .menu-ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
   }
 
-  li {
+  .menu-li {
     margin-right: 20px;
     position: relative;
   }
@@ -278,40 +278,40 @@
     <!-- Bouton de menu pour les écrans plus petits -->
     <div class="menu-icon" id="menu-small" onclick="toggleMenu()">
     </div> 
-    <ul class="dropdown-max">
-      <li><a href="{% url 'libeiki:accueil' %}"><span class="fi-home"> ACCUEIL</span></a></li>
-      <li class="sub">
+    <ul class="dropdown-max menu-ul">
+      <li class="menu-li"><a href="{% url 'libeiki:accueil' %}"><span class="fi-home"> ACCUEIL</span></a></li>
+      <li class="sub menu-li">
         <a href="#">REIKI</a>
-        <ul class="dropdown">
-          <li><a href="{% url 'libeiki:reiki' %}">Qu'est ce que le Reiki?</a></li>
-          <li><a href="{% url 'libeiki:lignee_reiki' %}">Lignée Reiki</a></li>
-          <li><a href="#">Tarifs</a></li>
+        <ul class="dropdown menu-ul">
+          <li class="menu-li"><a href="{% url 'libeiki:reiki' %}">Qu'est ce que le Reiki?</a></li>
+          <li class="menu-li"><a href="{% url 'libeiki:lignee_reiki' %}">Lignée Reiki</a></li>
+          <li class="menu-li"><a href="#">Tarifs</a></li>
         </ul>
       </li>
-      <li class="sub">
+      <li class="sub menu-li">
         <a href="#">NUMEROLOGIE</a>
-        <ul class="dropdown">
-          <li><a href="{% url 'libeiki:numerologie' %}">Qu'est ce que la Numérologie?</a></li>
-          <li><a href="#">Tarifs</a></li>
+        <ul class="dropdown menu-ul">
+          <li class="menu-li"><a href="{% url 'libeiki:numerologie' %}">Qu'est ce que la Numérologie?</a></li>
+          <li class="menu-li"><a href="#">Tarifs</a></li>
         </ul>
       </li>      
-      <li class="sub">
+      <li class="menu-li sub">
         <a href="#">MASSAGE BAGUETTE KANSA</a>
-        <ul class="dropdown">
-          <li><a href="{% url 'libeiki:visage' %}">Qu'est ce que le Massage Baguette Kansa?</a></li>
-          <li><a href="#">Tarifs</a></li>
+        <ul class="dropdown menu-ul">
+          <li class="menu-li"><a href="{% url 'libeiki:visage' %}">Qu'est ce que le Massage Baguette Kansa?</a></li>
+          <li class="menu-li"><a href="#">Tarifs</a></li>
         </ul>
       </li>
-      <li class="sub">
+      <li class="sub menu-li">
         <a href="#">SOPHROLOGIE</a>
-        <ul class="dropdown">
-          <li><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la Sophrologie?</a></li>
-          <li><a href="#">Tarifs</a></li>
+        <ul class="dropdown menu-ul">
+          <li class="menu-li"><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la Sophrologie?</a></li>
+          <li class="menu-li"><a href="#">Tarifs</a></li>
         </ul>
       </li>
-      <li><a href="{% url 'libeiki:contact' %}">CONTACT</a></li>
-      <li><a href="{% url 'libeiki:quisuisje' %}">QUI SUIS-JE ?</a></li>
-      <li><a href="{% url 'libeiki:send_commentaire' %}">LAISSER UN COMMENTAIRE</a></li>
+      <li class="menu-li"><a href="{% url 'libeiki:contact' %}">CONTACT</a></li>
+      <li class="menu-li"><a href="{% url 'libeiki:quisuisje' %}">QUI SUIS-JE ?</a></li>
+      <li class="menu-li"><a href="{% url 'libeiki:send_commentaire' %}">LAISSER UN COMMENTAIRE</a></li>
     </ul>
   </div>
     <!-- Nouvelle structure pour les icônes sociales -->
