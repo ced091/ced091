@@ -5,7 +5,7 @@ from django.http import HttpResponseNotFound
 
 # Create your views here.
 
-ROOT_DOCS = "/home/cedric/docs/doc_perso/build/html"
+ROOT_DOCS = "/home/cedric/docs/docs/build/html"
 
 def main(request):
     # Chemin du dossier de la documentation générée par Sphinx
