@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'station_meteo',
     'gunicorn',
     'libeiki',
+    'docs',
 ]
 
 MIDDLEWARE = [

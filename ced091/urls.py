@@ -21,5 +21,6 @@ urlpatterns = [
     path('', views.main, name="main"),
     path('station/', include('station_meteo.urls')),
     path('libeiki/', include('libeiki.urls')),
+    path('document/', include('docs.urls')),
     path('admin/', admin.site.urls),
 ]
