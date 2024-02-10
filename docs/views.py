@@ -7,13 +7,13 @@ from django.http import HttpResponseNotFound
 
 ROOT_DOCS = "/home/cedric/docs/doc_perso/build/html"
 
-def main(request):
+def main(request, path):
     # Chemin du dossier de la documentation générée par Sphinx
     sphinx_docs_path = os.path.join(ROOT_DOCS)
     print(f"sphinx_doc_path {sphinx_docs_path}")
 
     # Chemin complet vers le fichier demandé (index.html ou tout autre fichier)
-    full_path = os.path.join(ROOT_DOCS, 'index.html')
+    full_path = os.path.join(ROOT_DOCS, path)
     print(full_path)
 
     # Vérifier si le fichier existe
