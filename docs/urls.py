@@ -4,5 +4,5 @@ from . import views
 app_name='docs'
 
 urlpatterns = [
-    path('', views.main, name="main"),
+    path('documentation/<path:path>', views.main, name="main"),
 ]
