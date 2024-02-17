@@ -1,3 +1,8 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import MeteoPoint
+from .serializers import MeteoPointSerializer
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -38,6 +43,8 @@ def accueil(request):
     context['data_press'] = data_press
     return render(request, 'station_meteo/accueil.html', context)
 
+
+
 def add_bme280(request):
     data = reading_data()
     date_object = data.timestamp.timestamp()
@@ -52,3 +59,11 @@ def add_bme280(request):
         form = Bme280Form(initial=initial_data)
 
     return render(request, 'station_meteo/add_bme280.html', {'form': form})
+
+class MeteoPointAPIView(APIView):
+    def post(self, request):
+        serializer = MeteoPointSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
