@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
 </head>
 <style>
-    h2 {
+    h2, .indication {
         text-align: center;
     }
 </style>
@@ -22,14 +22,50 @@
     <h2>Mesures dernières 24h capteur BME280</h2>
     <div class="grid-container">
         <div class="grid-x">
-            <div class="small-12 medium-4 cell" >
+            <div class="small-12 medium-4 cell indication" >
                 <canvas id="chartTemperature" width="400" height="400"></canvas>
+                <div>
+                    Max : {{ max_temperature }}
+                </div>
+                <div>
+                    Min : {{ min_temperature }}
+                </div>
+                <div>
+                    Moy : {{ avg_temperature }}
+                </div>  
+                <div>
+                    SIGMA : {{ st_dev_temperature }}
+                </div> 
             </div>    
-            <div class="small-12 medium-4 cell" >    
+            <div class="small-12 medium-4 cell indication" >    
                 <canvas id="chartPressure" width="400" height="400"></canvas>
+                <div>
+                    Max : {{ max_pressure }}
+                </div>
+                <div>
+                    Min : {{ min_pressure }}
+                </div>
+                <div>
+                    Moy : {{ avg_pressure }}
+                </div> 
+                <div>
+                    SIGMA : {{ st_dev_pressure }}
+                </div> 
             </div>
-            <div class="small-12 medium-4 cell" >
+            <div class="small-12 medium-4 cell indication" >
                 <canvas id="chartHumidity" width="400" height="400"></canvas>
+                <div>
+                    Max : {{ max_humidity }}
+                </div>
+                <div>
+                    Min : {{ min_humidity }}
+                </div>
+                <div>
+                    Moy : {{ avg_humidity }}
+                </div> 
+                <div>
+                    SIGMA : {{ st_dev_humidity }}
+                </div> 
             </div>
         </div>
     </div>

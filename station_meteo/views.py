@@ -1,3 +1,5 @@
+from statistics import stdev
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import MeteoPoint
@@ -12,7 +14,9 @@ from .capteur_temp import reading_data
 
 # Create your views here.
 
-from datetime import datetime
+from django.utils import timezone
+
+from datetime import datetime, timedelta
 
 # def accueil(request):
 #     x= Bme280.objects.all()
@@ -69,17 +73,42 @@ class MeteoPointAPIView(APIView):
         return Response(serializer.errors, status=400)
 
 def accueil(request):
-    data = MeteoPoint.objects.all()  # Récupérer toutes les données de votre modèle
+    last_24_hours = timezone.now() - timedelta(hours=24)
+    data = MeteoPoint.objects.filter(timestamp__gte=last_24_hours)
     # Préparer les données pour le passage au template
     labels = [entry.timestamp.strftime("%Y-%m-%d %H:%M:%S") for entry in data]
     temperature = [entry.temperature for entry in data]
+    max_temperature = "{:.3f}".format(max(temperature)) + " °C"
+    min_temperature = "{:.3f}".format(min(temperature)) + " °C"
+    avg_temperature = "{:.3f}".format(sum(temperature)/len(temperature)) + " °C"
+    st_dev_temperature = "{:.3f}".format(stdev(temperature)) + " °C"
     pressure = [entry.pressure for entry in data]
+    max_pressure = "{:.3f}".format(max(pressure)) + " hPa"
+    min_pressure = "{:.3f}".format(min(pressure)) + " hPa"
+    avg_pressure = "{:.3f}".format(sum(pressure)/len(pressure)) + " hPa"
+    st_dev_pressure = "{:.3f}".format(stdev(pressure)) + " hPa"
     humidity = [entry.humidity for entry in data]
+    max_humidity = "{:.3f}".format(max(humidity)) + " %"
+    min_humidity = "{:.3f}".format(min(humidity)) + " %"
+    avg_humidity = "{:.3f}".format(sum(humidity)/len(humidity)) + " %"
+    st_dev_humidity = "{:.3f}".format(stdev(humidity)) + " %"
     context = {
         'labels': labels,
         'temperature': temperature,
         'pressure' : pressure,
-        'humidity' : humidity
+        'humidity' : humidity,
+        'max_temperature' : max_temperature,
+        'min_temperature' : min_temperature,
+        'avg_temperature' : avg_temperature,
+        'st_dev_temperature' : st_dev_temperature,
+        'max_pressure' : max_pressure,
+        'min_pressure' : min_pressure,
+        'avg_pressure' : avg_pressure,
+        'st_dev_pressure' : st_dev_pressure,
+        'max_humidity' : max_humidity,
+        'min_humidity' : min_humidity,
+        'avg_humidity' : avg_humidity,
+        'st_dev_humidity' : st_dev_humidity,
     }
     return render(request, 'station_meteo/accueil_bis.html', context)
 
