@@ -18,7 +18,7 @@ class MeteoPoint(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.timestamp + " " +
+        return (self.timestamp.strftime("%Y-%m-%d %H:%M:%S") + " " +
                    str(self.temperature) + " " +
                    str(self.humidity) + " " +
                    str(self.timestamp))
