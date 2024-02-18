@@ -22,7 +22,7 @@
     <h2>Mesures dernières 24h capteur BME280</h2>
     <div class="grid-container">
         <div class="grid-x">
-            <div class="small-12 medium-4 cell indication" >
+            <div class="small-12 medium-12 cell indication" >
                 <canvas id="chartTemperature" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_temperature }}
@@ -37,7 +37,7 @@
                     SIGMA : {{ st_dev_temperature }}
                 </div> 
             </div>    
-            <div class="small-12 medium-4 cell indication" >    
+            <div class="small-12 medium-12 cell indication" >    
                 <canvas id="chartPressure" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_pressure }}
