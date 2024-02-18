@@ -14,34 +14,34 @@ from .capteur_temp import reading_data
 
 from datetime import datetime
 
-def accueil(request):
-    x= Bme280.objects.all()
-    y= Bme280.objects.all()
-    data_hum = []
-    data_temp= []
-    data_press=[]
-    try :
-        data = reading_data()
-        context = {
-        "temp_now": round(data.temperature,2),
-        "pression_now": round(data.pressure,2),
-        "humidity_now": round(data.humidity,2),
-        }
-    except:
-        context = {}    
-    try : 
-        for i in range(0,len(x)):
-            data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
-        for i in range(0,len(x)):
-            data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
-        for i in range(0,len(x)):
-            data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
-    except:
-        pass
-    context['data_hum'] = data_hum
-    context['data_temp'] = data_temp
-    context['data_press'] = data_press
-    return render(request, 'station_meteo/accueil.html', context)
+# def accueil(request):
+#     x= Bme280.objects.all()
+#     y= Bme280.objects.all()
+#     data_hum = []
+#     data_temp= []
+#     data_press=[]
+#     try :
+#         data = reading_data()
+#         context = {
+#         "temp_now": round(data.temperature,2),
+#         "pression_now": round(data.pressure,2),
+#         "humidity_now": round(data.humidity,2),
+#         }
+#     except:
+#         context = {}    
+#     try : 
+#         for i in range(0,len(x)):
+#             data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
+#         for i in range(0,len(x)):
+#             data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
+#         for i in range(0,len(x)):
+#             data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
+#     except:
+#         pass
+#     context['data_hum'] = data_hum
+#     context['data_temp'] = data_temp
+#     context['data_press'] = data_press
+#     return render(request, 'station_meteo/accueil.html', context)
 
 
 
@@ -67,3 +67,19 @@ class MeteoPointAPIView(APIView):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+
+def accueil(request):
+    data = MeteoPoint.objects.all()  # Récupérer toutes les données de votre modèle
+    # Préparer les données pour le passage au template
+    labels = [entry.timestamp.strftime("%Y-%m-%d %H:%M:%S") for entry in data]
+    temperature = [entry.temperature for entry in data]
+    pressure = [entry.pressure for entry in data]
+    humidity = [entry.humidity for entry in data]
+    context = {
+        'labels': labels,
+        'temperature': temperature,
+        'pressure' : pressure,
+        'humidity' : humidity
+    }
+    return render(request, 'station_meteo/accueil_bis.html', context)
+

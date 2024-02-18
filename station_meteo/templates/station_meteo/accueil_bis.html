@@ -1,0 +1,139 @@
+{% extends "ced091/base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Graphique</title>
+    <!-- Inclure Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure Moment.js pour l'adaptateur de date -->
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <!-- Inclure l'adaptateur de date pour Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="small-12 medium-4 cell" >
+                <canvas id="chartTemperature" width="400" height="400"></canvas>
+            </div>    
+            <div class="small-12 medium-4 cell" >    
+                <canvas id="chartPressure" width="400" height="400"></canvas>
+            </div>
+            <div class="small-12 medium-4 cell" >
+                <canvas id="chartHumidity" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Récupérer les données passées depuis la vue Django
+        var labels = {{ labels|safe }};
+        var temperature = {{ temperature|safe }};
+        var pressure = {{ pressure|safe }};
+        var humidity = {{ humidity|safe }};
+        
+        // Créer un graphique avec Chart.js
+        var ctxTemperature = document.getElementById('chartTemperature').getContext('2d');
+        var chartTemperature = new Chart(ctxTemperature, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Température',
+                    data: temperature,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond
+                    borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        time: {
+                            unit: 'hour', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            displayFormats: {
+                                hour: 'HH:mm' // Format européen pour les heures (24 heures)
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Créer le deuxième graphique avec Chart.js
+        var ctxPressure = document.getElementById('chartPressure').getContext('2d');
+        var chartPressure = new Chart(ctxPressure, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Pression',
+                    data: pressure,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Couleur de fond
+                    borderColor: 'rgba(54, 162, 235, 1)', // Couleur de la bordure
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        time: {
+                            unit: 'hour', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            displayFormats: {
+                                hour: 'HH:mm' // Format européen pour les heures (24 heures)
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Créer le deuxième graphique avec Chart.js
+        var ctxHumidity = document.getElementById('chartHumidity').getContext('2d');
+        var chartHumidity = new Chart(ctxHumidity, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Humidité',
+                    data: humidity,
+                    backgroundColor: 'rgba(0, 128, 0, 0.2)', // Couleur de fond
+                    borderColor: 'rgba(0, 128, 0, 1)', // Couleur de la bordure
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        time: {
+                            unit: 'hour', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            displayFormats: {
+                                hour: 'HH:mm' // Format européen pour les heures (24 heures)
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+{% endblock %}
