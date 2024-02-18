@@ -148,21 +148,45 @@ STATIC_ROOT = Path(__file__).resolve().parent.parent.parent
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# LOGS FILES
+# Définir le chemin du répertoire des fichiers journaux
+LOG_DIR = os.path.join(BASE_DIR, '../../logs')
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+# Configurer les fichiers journaux
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
         'file': {
-            'level': 'ERROR',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/home/cedric/django.log',
+            'filename': os.path.join(LOG_DIR, 'debug.log'),
         },
     },
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'ERROR',
+            'level': 'WARNING',
             'propagate': True,
+        },
+        'station_meteo': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+
+        'libeiki': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
         },
     },
 }

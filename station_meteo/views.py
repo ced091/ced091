@@ -1,3 +1,5 @@
+import logging
+
 from statistics import stdev
 
 from rest_framework.views import APIView
@@ -18,51 +20,19 @@ from django.utils import timezone
 
 from datetime import datetime, timedelta
 
-# def accueil(request):
-#     x= Bme280.objects.all()
-#     y= Bme280.objects.all()
-#     data_hum = []
-#     data_temp= []
-#     data_press=[]
-#     try :
-#         data = reading_data()
-#         context = {
-#         "temp_now": round(data.temperature,2),
-#         "pression_now": round(data.pressure,2),
-#         "humidity_now": round(data.humidity,2),
-#         }
-#     except:
-#         context = {}    
-#     try : 
-#         for i in range(0,len(x)):
-#             data_hum.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].humidity})
-#         for i in range(0,len(x)):
-#             data_press.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].pression})
-#         for i in range(0,len(x)):
-#             data_temp.append({'x': datetime.fromtimestamp(x[i].date_point).strftime('%m/%d/%Y %H:%M:%S'), 'y': y[i].temp})
-#     except:
-#         pass
-#     context['data_hum'] = data_hum
-#     context['data_temp'] = data_temp
-#     context['data_press'] = data_press
-#     return render(request, 'station_meteo/accueil.html', context)
+logger = logging.getLogger(__name__)
 
-
-
-def add_bme280(request):
-    data = reading_data()
-    date_object = data.timestamp.timestamp()
-    timestamp = float(date_object)
-    initial_data = {'temp': data.temperature, 'humidity': data.humidity, 'pression': data.pressure, 'date_point': timestamp}
-    if request.method == 'POST':
-        form = Bme280Form(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('station_meteo:accueil')
+def log_user(request, vue):
+    username = request.user.username if request.user.is_authenticated else 'Anonymous'
+    current_datetime = timezone.now().strftime("%Y-%m-%d %H:%M:%S")
+    ip_address = request.META.get('HTTP_X_FORWARDED_FOR', None)
+    if ip_address is None:
+        # Si l'en-tête X-Forwarded-For n'est pas disponible, utilisez l'adresse IP par défaut
+        ip_address = request.META.get('REMOTE_ADDR', 'unknown')
     else:
-        form = Bme280Form(initial=initial_data)
-
-    return render(request, 'station_meteo/add_bme280.html', {'form': form})
+        # Séparez les adresses IP si X-Forwarded-For contient plusieurs adresses
+        ip_address = ip_address.split(",")[0].strip()
+    logger.info(f'[{current_datetime}][{username}][{ip_address}] Accès à la vue {vue}')
 
 class MeteoPointAPIView(APIView):
     def post(self, request):
@@ -73,6 +43,7 @@ class MeteoPointAPIView(APIView):
         return Response(serializer.errors, status=400)
 
 def accueil(request):
+    log_user(request, "accueil")
     last_24_hours = timezone.now() - timedelta(hours=24)
     data = MeteoPoint.objects.filter(timestamp__gte=last_24_hours)
     # Préparer les données pour le passage au template
