@@ -21,4 +21,4 @@ class MeteoPoint(models.Model):
         return (self.timestamp.strftime("%Y-%m-%d %H:%M:%S") + " " +
                    str(self.temperature) + " " +
                    str(self.humidity) + " " +
-                   str(self.timestamp))
+                   str(self.pressure))
