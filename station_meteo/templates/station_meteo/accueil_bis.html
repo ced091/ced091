@@ -2,12 +2,10 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votre Graphique</title>
+    <title>Capteur BME280</title>
     <!-- Inclure Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Inclure Moment.js pour l'adaptateur de date -->
@@ -15,7 +13,13 @@
     <!-- Inclure l'adaptateur de date pour Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
 </head>
+<style>
+    h2 {
+        text-align: center;
+    }
+</style>
 <body>
+    <h2>Mesures dernières 24h capteur BME280</h2>
     <div class="grid-container">
         <div class="grid-x">
             <div class="small-12 medium-4 cell" >
@@ -43,7 +47,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Température',
+                    label: 'Température (°C)',
                     data: temperature,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)', // Couleur de fond
                     borderColor: 'rgba(255, 99, 132, 1)', // Couleur de la bordure
@@ -62,7 +66,12 @@
                         }
                     },
                     y: {
-                        beginAtZero: true
+                        beginAtZero: false,
+                        min: 15, // Valeur minimale de l'échelle
+                        max: 35, // Valeur maximale de l'échelle
+                        ticks: {
+                                stepSize: 1 // Taille de l'intervalle entre les étiquettes
+                        }
                     }
                 }
             }
@@ -75,7 +84,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Pression',
+                    label: 'Pression (hPa)',
                     data: pressure,
                     backgroundColor: 'rgba(54, 162, 235, 0.2)', // Couleur de fond
                     borderColor: 'rgba(54, 162, 235, 1)', // Couleur de la bordure
@@ -94,7 +103,12 @@
                         }
                     },
                     y: {
-                        beginAtZero: true
+                        beginAtZero: false,
+                        min: 900, // Valeur minimale de l'échelle
+                        max: 1100, // Valeur maximale de l'échelle
+                        ticks: {
+                                stepSize: 10 // Taille de l'intervalle entre les étiquettes
+                        }
                     }
                 }
             }
@@ -107,7 +121,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Humidité',
+                    label: 'Humidité (%)',
                     data: humidity,
                     backgroundColor: 'rgba(0, 128, 0, 0.2)', // Couleur de fond
                     borderColor: 'rgba(0, 128, 0, 1)', // Couleur de la bordure
@@ -126,7 +140,12 @@
                         }
                     },
                     y: {
-                        beginAtZero: true
+                        beginAtZero: false,
+                        min: 15, // Valeur minimale de l'échelle
+                        max: 85, // Valeur maximale de l'échelle
+                        ticks: {
+                                stepSize: 5 // Taille de l'intervalle entre les étiquettes
+                        }
                     }
                 }
             }
