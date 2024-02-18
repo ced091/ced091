@@ -43,7 +43,7 @@ class MeteoPointAPIView(APIView):
         return Response(serializer.errors, status=400)
 
 def accueil(request):
-    log_user(request, "accueil")
+    log_user(request, "accueil/meteo")
     last_24_hours = timezone.now() - timedelta(hours=24)
     data = MeteoPoint.objects.filter(timestamp__gte=last_24_hours)
     # Préparer les données pour le passage au template
