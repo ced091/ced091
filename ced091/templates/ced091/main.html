@@ -10,11 +10,16 @@
     }
 </style>
 <div class="grid-container">
+
     
-    <div >
-        <h1 style="text-align: center;">Bienvenue sur CED091</h1>
+    <div class="grid-x">
+        <div class="cell small-2 large-2">
+            <img class="thumbnail" src="{% static 'favicon.ico' %}"  style="width: 70%">
+        </div>
+        <div class="cell small-10 large-10">
+            <h1 style="text-align: left;">Bienvenue sur CED091</h1>
+        </div>
     </div>
-    <p>Bonjour, nous sommes le {{ date_nom }}</p>
     <fieldset class="fieldset">
         <legend>Menu</legend>
             <p>
