@@ -134,3 +134,6 @@ def send_commentaire(request):
         'star_data': 5,
     }
     return render(request, "libeiki/commentaire.html", context)
+
+def mentions_legales(request):
+    return render(request, "libeiki/mentions_legales.html")

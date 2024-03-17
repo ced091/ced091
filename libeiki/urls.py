@@ -18,4 +18,5 @@ urlpatterns = [
     path('tarif-massage/', views.tarif_massage,name='tarif_massage'),
     path('tarif-sophrologie/', views.tarif_sophrologie,name='tarif_sophrologie'),
     path('send-commentaire/', views.send_commentaire, name='send_commentaire'),
+    path('mentions-legales/', views.mentions_legales, name='mentions_legales'),
 ]

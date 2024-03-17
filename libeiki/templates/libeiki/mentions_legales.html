@@ -1,0 +1,266 @@
+{% extends "libeiki/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+    {% include 'libeiki/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    margin: 0;
+    font-family: Dosis, sans-serif;
+    background-image: url('{% static "/photos/fond.png" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+    }
+
+    h4 {
+        font-family: "Dosis", sans-serif;
+    }
+
+    h5 {
+    font-family: "Dosis", sans-serif;
+    }
+    .liste-blanc {
+        color:white;
+    }
+
+    p {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        text-align: center;
+        color: black;
+    }
+
+    .intro, li {
+        font-size: 18px;
+        text-align: justify;
+        color:white;
+    }
+
+    .reiki_signe {
+        text-align: right;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .intro {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<body>
+    <div class="contenu-principal">                
+        <div class="grid-container">              
+            <h4>MENTIONS LEGALES</h4>
+            <h4>1. Présentation du site.</h4>                                        
+            <p class="intro">
+                En vertu de l’article 6 de la loi n° 2004-575 du 21 Juin 2004 pour la confiance dans
+                l’économie numérique. Il est précisé aux utilisateurs du site « https://www… » l’identité
+                des différents intervenants dans le cadre de sa réalisation et de son suivi:<br>
+                Propriétaire: Gabrielle Joaquim<br>
+                Siège social: 31 rue du passeur de Boulogne 92130 Issy les Moulneaux<br>
+                N° SIRET:<br>
+                Directeur de le publication et créateur libeiki- Gabrielle JOAQUIM<br>
+                Responsable publication: Gabrielle JOAQUIM<br>
+                Le responsable publication est une personne physique ou une personne morale.<br>
+                Webdesigner:<br>
+                Hébergeur:<br>
+            </p>
+            <h4>2. Conditions générales d’utilisation du site et des services proposé.</h4>
+            <p class="intro">
+                L’utilisation du site Libeiki…fr implique l’acceptation pleine et entière de ses conditions
+                générales d’utilisation ci après décrites. Ces conditions d’utilisation sont susceptible
+                d’être modifiées ou complétées à tout moment, les utilisateurs du site Libeiki…fr sont
+                donc invités à les consultés de manière régulière.<br>
+                Ce site est normalement accessible à tout moment aux utilisateurs. Une interruption pour
+                raison de maintenance technique peut tout fois être décidée par Gabrielle JOAQUIM, qui
+                s’efforcera alors de communiquer préalablement aux utilisateurs des dates et heures de
+                l’intervention.<br>
+                Le site libeiki…fr est mis à jour régulièrement par Gabrielle JOAQUIM. De la même façon;
+                les mentions légales peuvent être modifiées à tout moment: elles s’imposent néanmoins à
+                l’utilisateurs qui est invité à s’y référer le plus souvent possible afin d’en prendre
+                connaissance.<br>
+            </p>
+            <h4>3. Description des services fournis.</h4>
+            <p class="intro">
+                Le site libeiki…fr a pour objet de fournir une information concernant l’ensemble des
+                activités de la société. Gabrielle JOAQUIM s’efforce de fournir sur Libeiki…fr des
+                informations aussi précise que possible. Toutefois, elle ne pourra pas être tenue
+                responsable des omissions, des inexactitudes et des carences dans la mise à jour,
+                qu’elles soient de son fait ou du fait des tiers partenaires qui fournissent ces informations.
+                Toutes les informations indiquées sur Libeiki…fr sont données à titre indicatif, et sont
+                susceptibles d’évoluer . Par ailleurs, les renseignements figurant sur Libeiki..fr ne sont
+                pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis
+                leur mise en ligne.
+            </p>
+            <h4>4. Limitations contractuelles sur les données technique.</h4>
+            <p class="intro">
+                Le site internet ne pourra pas être tenu responsable de dommages matériels liés à
+                l’utilisation du site. De plus, l’utilisation du site s’engage à accéder au site en utilisant un
+                matériel récent, ne contenant pas de virus et avec un navigateur de dernière génération
+                mis-à-jour.
+            </p>
+            <h4>5. Propriété intellectuelle et contrefaçons</h4>
+            <p class="intro">
+                Gabrielle JOAQUIM est propriétaire des droits de propriété intellectuelle ou détient tous
+                les éléments accessible sur le site, notamment les textes, images, graphisme, logo, sons,
+                logiciels.<br>
+                Toute reproduction, représentation, modification, publication, adaptation de tout ou partie
+                des éléments du site, quel que soit le moyen ou le procédé utilisé est interdite, sauf
+                autorisation écrite préalable de Gabrielle JOAQUIM.
+                Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient
+                sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux
+                dispositions des articles L335-2 et suivants du Code de Propriété intellectuelle.
+            </p>
+            <h4>6.Limitations de responsabilité</h4>
+            <p class="intro">
+                Gabrielle Joaquim ne pourra pas être tenue responsable des dommages directs et
+                indirects causés au matériel de l’utilisateur, lors de l’accès au site Libeiki…fr, et résultant
+                soit de l’utilisation d’un matériel ne répondant pas aux spécifications indiquées au point
+                4, soit de l’apparition d’un bug ou d’une incompatibilité.<br>
+                Gabrielle JOAQUIM, ne pourra également être tenue responsable des dommages
+                indirects (tels par exemple de perte de marché ou perte de chance) consécutifs à
+                l’utilisation du site Libeiki…fr.
+            </p>
+            <h4>7. Gestion des données personnelles/politique de confidentialité (RGPD).</h4>
+            <p class="intro">
+                En France les données personnelles sont notamment protégées par la loi n°78-87 du 6
+                janvier 1978, la loi n°2004-801 du 6 Aout 2004, l’article L226-13 du code pénal et la
+                Directive Européenne du 24 novembre 1995.<br>
+                À l’occasion de l’utilisation du site Libeiki…fr peuvent être recueillies: l’URL des liens par
+                l’intermédiaire desquels l’utilisateur à accédé au site Libeiki…fr le fournisseur d’accès de
+                l’utilisateur, l’adresse de protocole internet (IP) de l’utilisateur.
+                En tout état de cause, Gabrielle JOAQUIM, ne collecte pas d’informations personnelles
+                relatives à l’utilisateur que pour le besoin de certains services proposés par libeiki…fr.
+                L’utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu’il
+                procède lui même à leur saisie.<br>
+                Conformément aux dispositions des articles 38 et suivants de la loi 76-17 du 6 Janvier
+                1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un
+                droit d’accès, de rétractation et d’opposition aux données personnelles le concernant, en
+                effectuant sa demande écrite et signée, accompagnée d’une copie du titre d’identité avec
+                signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être
+                envoyée.<br>
+                Aucune information personnelle de l’utilisateur de Libeiki…fr n’est publiée à l’insu de
+                l’utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des
+                tiers. Seule l’hypothèse du rachat de Libeiki…fr et de ses droits permettrait la
+                transmissions dites informations à l’éventuel acquéreur qui serait à son tour tenu de la
+                même obligation de conservation et de modification des données vis à vis de l’utilisateur
+                du site Libeiki…fr.<br>
+                Les bases de données sont protégées par les dispositions de la loi du 1er Juillet 1998
+                transposant la directive 96/9 du 11 Mars 1996 relative à la protection juridique des bases
+                de données.<br>
+                Les informations recueillies dans les formulaires sont enregistrés dans un fichier
+                informatisé par la société de Gabrielle JOAQUIM, et ne font l’objet d’aucune
+                communication, cession ou divulgation à des tiers.<br>
+                La base légale du traitement est que vous consentez à la collecte et au traitement de vos
+                données personnelles récoltées via le formulaire en le remplissant de votre plein gré et en
+                cochant la case dédiée à l’acceptation de ce traitement. Les données marquées par un
+                astérisque dans le questionnaire doivent obligatoirement être fournies. Dans le cas
+                contraire, nous ne serons pas en mesure de répondre correctement à votre demande
+                concernant l’un de nos services proposés.<br>
+                Les données collectées seront communiquées aux seules destinataires suivants:
+                Gabrielle JOAQUIM<br>
+                Elles sont conservées pendant le durée nécessaire de traitement de votre demande et
+                durant la gestion jusqu’a la finalisation de votre projet, si une collaboration est mise ne
+                place entre Gabrielle JOAQUIM et vous-même. Vous pouvez accéder aux données vous
+                concernant, les rectifier, demander leur effacement ou exercer votre droit à la limitation du
+                traitement de vos données. Vous pouvez retirer à tout moment votre consentement au
+                traitement de vos données via l’adresse e-mail suivant: libeiki…@gamail.com « lien
+                direct »<br>
+                Consultez le site du cnil.fr pour plus d’information sur vos droits.
+                Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce
+                dispositif, vous pouvez contacter le service chargé de l’exercice de ces droits au (…..) ou
+                par e-mail à libeiki..@gmail.com<br>
+                Si vous estimez après nous avoir contactés, que vos droits « informatique et liberté » ne
+                sont pas respectés, vous pouvez adresser une réclamation à la CNIL.
+                Utilisation des données collectées
+                <ul>
+                    <li>
+                        Les données tels que le nom, l’adresse et autres servent à vous livrer, à vous contacter
+                        et à des fins légales;
+                    </li>
+                    <li>
+                        Les diverses données soumises via les formulaires de contact sont utilisées afin de
+                        rentrer en contact avec vous;
+                    </li>
+                    <li>
+                        Les diverses données soumises via les formulaires de contact sont utilisées afin de
+                        rentrer en contact avec vous;
+                    </li>
+                    <li>
+                        Dans le cas où vous avez accepté de recevoir par courrier électronique notre lettre
+                        d’information, votre adresse électronique sera utilisée afin que vous puissiez la recevoir.
+                    </li>
+                    <li>
+                        Votre adresse IP nous sert à:
+                    </li>
+                    <li>
+                        Vous fournir l’accès au site;
+                    </li>
+                    <li>
+                        Savoir depuis quelle localisation ( ville) vous visitez le site;
+                    </li>
+                    <li>
+                        Nous protéger des attaques;
+                    </li>
+                    <li>
+                        Les données concernant vos logiciels et votre matériel nous servent à:
+                    </li>
+                    <li>
+                        Mieux connaître les outils utilisés par les utilisateurs du site à des fin statistiques et afin
+                        d’améliorer le site;
+                    </li>
+                    <li>
+                        Les métadonnées comme l’URL, l’heure de la visite, la durée de la visite, le canal
+                        utilisé, l’URL référence et le mot clé recherché nous servent à: 
+                    </li>
+                    <li>
+                        Effectuer un suivi statistique du site; 
+                    </li>
+                    <li>
+                        Identifier d’éventuel problèmes sur le site ( page inaccessible, page mal référencée/
+                        positionnée, problème dans le tunnel d’achat, etc); 
+                    </li>
+                    <li>
+                        Identifier ce qui fonctionne bien( mots clés pertinents, bonne optimisation du site, etc).
+                    </li>
+                </ul>
+            <h4>8. Les liens hypertextes.</h4>
+            <p class="intro">
+                Le site libeiki… contient un certain nombre de liens hypertextes vers d’autres sites, mis
+                en place avec l’autorisation de Gabrielle JOAQUIM. Cependant Gabrielle JOAQUIM n’as
+                pas la possibilité de vérifier les contenu des sites ainsi visités, et n’assumera en
+                conséquence aucune responsabilité de ce fait.
+            </p>
+            <h4>9. Droit applicable et attribution de juridiction.</h4>
+            <p class="intro">
+                Tout litige avec l’utilisation du site libeiki… est soumis au droit français. Il est fait
+                attribution exclusive de juridiction aux tribunaux compétents.
+            </p>
+            <h4>10. Les principales lois concernées.</h4>
+            <p class="intro">
+                Loi n°78-17 du 6 janvier 1978, notamment modifiée par la loi n°2004-801 du 6 aout 2004
+                relative à l’informatique, aux fichiers et aux libertés.<br>
+                Loi n°2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique.
+            </p>
+            <h4>11.Lexique.</h4>
+            <p class="intro">
+                Utilisateur: internaute se connectant, utilisant le site susnommé.<br>
+                Informations personnelles: » les informations qui permettent, sous quelque forme que ce
+                soit, directement ou non, l’identification des personnes physiques auxquelles elles
+                s’appliquent » ( article 4 de la loi 78-17 du 6 janvier 1978).<br>
+                Me contacter:<br>
+                Gabrielle JOAQUIM<br>
+                07.64.37.51.26<br>
+                Uniquement sur rdv<br>
+            </p>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
