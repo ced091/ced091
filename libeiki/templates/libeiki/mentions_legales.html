@@ -9,34 +9,16 @@
 {% block content %}
 
 <style>
-
-    h4 {
-        font-family: "Dosis", sans-serif;
-    }
-
-    h5 {
-    font-family: "Dosis", sans-serif;
-    }
-    .intro, li {
-        text-align: justify;
-    }
-
     .reiki_signe {
         text-align: right;
-    }
-
-    @media only screen and (max-width: 768px) {
-        .intro {
-            font-size: 18px;
-        }
     }
 </style>
 
 <body>
     <div class="contenu-principal">                
         <div class="grid-container">              
-            <h4>MENTIONS LEGALES</h4>
-            <h4>1. Présentation du site.</h4>                                        
+            <h3 class="titre">MENTIONS LEGALES</h3>
+            <h3>1. Présentation du site.</h3>                                        
             <p class="intro">
                 En vertu de l’article 6 de la loi n° 2004-575 du 21 Juin 2004 pour la confiance dans
                 l’économie numérique. Il est précisé aux utilisateurs du site « https://www… » l’identité
@@ -50,7 +32,7 @@
                 Webdesigner:<br>
                 Hébergeur:<br>
             </p>
-            <h4>2. Conditions générales d’utilisation du site et des services proposé.</h4>
+            <h3>2. Conditions générales d’utilisation du site et des services proposé.</h3>
             <p class="intro">
                 L’utilisation du site Libeiki…fr implique l’acceptation pleine et entière de ses conditions
                 générales d’utilisation ci après décrites. Ces conditions d’utilisation sont susceptible
@@ -65,7 +47,7 @@
                 l’utilisateurs qui est invité à s’y référer le plus souvent possible afin d’en prendre
                 connaissance.<br>
             </p>
-            <h4>3. Description des services fournis.</h4>
+            <h3>3. Description des services fournis.</h3>
             <p class="intro">
                 Le site libeiki…fr a pour objet de fournir une information concernant l’ensemble des
                 activités de la société. Gabrielle JOAQUIM s’efforce de fournir sur Libeiki…fr des
@@ -77,14 +59,14 @@
                 pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis
                 leur mise en ligne.
             </p>
-            <h4>4. Limitations contractuelles sur les données technique.</h4>
+            <h3>4. Limitations contractuelles sur les données technique.</h3>
             <p class="intro">
                 Le site internet ne pourra pas être tenu responsable de dommages matériels liés à
                 l’utilisation du site. De plus, l’utilisation du site s’engage à accéder au site en utilisant un
                 matériel récent, ne contenant pas de virus et avec un navigateur de dernière génération
                 mis-à-jour.
             </p>
-            <h4>5. Propriété intellectuelle et contrefaçons</h4>
+            <h3>5. Propriété intellectuelle et contrefaçons</h3>
             <p class="intro">
                 Gabrielle JOAQUIM est propriétaire des droits de propriété intellectuelle ou détient tous
                 les éléments accessible sur le site, notamment les textes, images, graphisme, logo, sons,
@@ -96,7 +78,7 @@
                 sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux
                 dispositions des articles L335-2 et suivants du Code de Propriété intellectuelle.
             </p>
-            <h4>6.Limitations de responsabilité</h4>
+            <h3>6.Limitations de responsabilité</h3>
             <p class="intro">
                 Gabrielle Joaquim ne pourra pas être tenue responsable des dommages directs et
                 indirects causés au matériel de l’utilisateur, lors de l’accès au site Libeiki…fr, et résultant
@@ -106,7 +88,7 @@
                 indirects (tels par exemple de perte de marché ou perte de chance) consécutifs à
                 l’utilisation du site Libeiki…fr.
             </p>
-            <h4>7. Gestion des données personnelles/politique de confidentialité (RGPD).</h4>
+            <h3>7. Gestion des données personnelles/politique de confidentialité (RGPD).</h3>
             <p class="intro">
                 En France les données personnelles sont notamment protégées par la loi n°78-87 du 6
                 janvier 1978, la loi n°2004-801 du 6 Aout 2004, l’article L226-13 du code pénal et la
@@ -209,25 +191,25 @@
                         Identifier ce qui fonctionne bien( mots clés pertinents, bonne optimisation du site, etc).
                     </li>
                 </ul>
-            <h4>8. Les liens hypertextes.</h4>
+            <h3>8. Les liens hypertextes.</h3>
             <p class="intro">
                 Le site libeiki… contient un certain nombre de liens hypertextes vers d’autres sites, mis
                 en place avec l’autorisation de Gabrielle JOAQUIM. Cependant Gabrielle JOAQUIM n’as
                 pas la possibilité de vérifier les contenu des sites ainsi visités, et n’assumera en
                 conséquence aucune responsabilité de ce fait.
             </p>
-            <h4>9. Droit applicable et attribution de juridiction.</h4>
+            <h3>9. Droit applicable et attribution de juridiction.</h3>
             <p class="intro">
                 Tout litige avec l’utilisation du site libeiki… est soumis au droit français. Il est fait
                 attribution exclusive de juridiction aux tribunaux compétents.
             </p>
-            <h4>10. Les principales lois concernées.</h4>
+            <h3>10. Les principales lois concernées.</h3>
             <p class="intro">
                 Loi n°78-17 du 6 janvier 1978, notamment modifiée par la loi n°2004-801 du 6 aout 2004
                 relative à l’informatique, aux fichiers et aux libertés.<br>
                 Loi n°2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique.
             </p>
-            <h4>11.Lexique.</h4>
+            <h3>11.Lexique.</h3>
             <p class="intro">
                 Utilisateur: internaute se connectant, utilisant le site susnommé.<br>
                 Informations personnelles: » les informations qui permettent, sous quelque forme que ce
@@ -241,5 +223,9 @@
         </div>
     </div>
 </body>
+
+<footer>
+    {% include 'libeiki/footer.html' %}
+</footer>
 
 {% endblock %}

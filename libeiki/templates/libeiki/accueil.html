@@ -19,27 +19,27 @@
     padding: 20px;
 }
 
-
 .thumbnail {
     border: none;
 }
-.in_orbit {
-            
-            color: white;
-            text-align: center;
-            padding: 0px;
-        }
 
+.in_orbit {            
+    color: white;
+    text-align: center;
+    padding: 0px;
+}
 
-        .orbit-container, .orbit-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: relative;
-        }
+.orbit-container, .orbit-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
 .orbit-container {
     padding:0px;
 }
+
 .custom-text-container {
     position: absolute;
     top: 70%;
@@ -59,86 +59,80 @@
 } 
 
 .orbit-previous, .orbit-next {
-    margin-top: 20px; /* Ajustez la valeur selon vos besoins */
+    margin-top: 20px;
     color: black;
 }
 
 .pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current {
+  margin: 0 10px;
+}
+
+.star {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-right: 5px;
+    position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
-  }
-
-  .step-links {
-    display: flex;
     align-items: center;
-    justify-content: center;
+    border: 0px solid black;
+    border-radius: 50%;
+    box-sizing: border-box;
   }
 
-  .current {
-    margin: 0 10px;  /* Ajustez la marge selon vos préférences */
-  }
+.star::before {
+  content: '\2605';
+  font-size: 30px;
+  color: #d4af37;
+}
 
-  .star {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      margin-right: 5px; /* Espacement entre les étoiles (modifiable) */
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 0px solid black; /* Bordure noire de 1 pixel */
-      border-radius: 50%; /* Utilisez la bordure arrondie pour obtenir une forme d'étoile */
-      box-sizing: border-box; /* Inclure la bordure dans la largeur et la hauteur */
-    }
+.star-container {
+  display: flex;
+  align-items: center;
+}
 
-    .star::before {
-      content: '\2605'; /* Caractère d'étoile Unicode */
-      font-size: 30px; /* Taille de la police de l'étoile */
-      color: #d4af37; /* Couleur de l'étoile */
-    }
+.callout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
 
-    .star-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .callout {
-    /* Autres styles pour votre callout */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: auto;
-  }
 @media only screen and (max-width: 768px) {
+  .custom-text-container {
+      position: absolute;
+      top: 80%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: black; 
+      font-size: 16px;
+  }
 
-.custom-text-container {
-    position: absolute;
-    top: 80%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: black; 
-    font-size: 16px;
-}
+  .custom-text-container a {
+      color: white; 
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 18px;
+      border: 1px solid white;
+      padding: 15px;
+  } 
 
-.custom-text-container a {
-    color: white; 
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 18px;
-    border: 1px solid white;
-    padding: 15px;
-} 
-
-
-.intro {
-  font-size: 18px;
-}
-
-.orbit-container .orbit-image, .orbit {
-  height: 40vh; /* Réglez la hauteur selon vos préférences */
-}
+  .orbit-container .orbit-image, .orbit {
+    height: 40vh; /* Réglez la hauteur selon vos préférences */
+  }
 
 }
 </style>
@@ -251,16 +245,14 @@
   </div>
 </body>
 <script>
+
   document.addEventListener('DOMContentLoaded', function() {
-    // Fonction pour gérer le défilement vers la classe "comments"
     function scrollToComments() {
       const commentsSection = document.getElementById('comments-section');
       if (commentsSection) {
         commentsSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
-
-    // Ajouter un gestionnaire d'événements aux liens de pagination
     const paginationLinks = document.querySelectorAll('.pagination a');
     paginationLinks.forEach(function(link) {
       link.addEventListener('click', scrollToComments);

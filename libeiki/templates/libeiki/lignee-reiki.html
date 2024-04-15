@@ -9,37 +9,27 @@
 {% block content %}
 
 <style>
-      
-
-    h4, .thumbnail {
-        text-align: center;
-        font-family: "Dosis, sans-serif";
-    }
-
     .img-lignee {
         margin-bottom: 20px;
         margin-top: 20px;
         text-align: center;
         color: black;
     }
-
-    @media only screen and (max-width: 768px) {
-        .intro {
-            font-size: 18px;
-        }
-    }
 </style>
+
 <body>
     <div class="contenu-principal">                
         <div class="grid-container">                       
-            <h4>Lignée Reiki</h4>    
-            <div class='img-lignee' style="text-align: center;">
+            <h3 class="titre">LIGNEE REIKI</h3>    
+            <div class='img-lignee'>
                 <img class="lignee" src="{% static '/photos/lignee_reiki.png' %}" alt="Logo de votre site" class="logo" style="text-align: center;">
             </div>                    
         </div>
     </div>
 </body>
+
 <footer>
     {% include 'libeiki/footer.html' %}
 </footer>
+
 {% endblock %}
