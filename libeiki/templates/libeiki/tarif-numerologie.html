@@ -8,14 +8,6 @@
 
 {% block content %}
 <style>
-    body {
-    margin: 0;
-    font-family: Dosis, sans-serif;
-    background-image: url('{% static "/photos/fond.png" %}');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-}
 
 h4 {
     font-family: "Dosis", sans-serif;
@@ -39,6 +31,9 @@ h4 {
         </div>
     </div>
 </body>
+<footer>
+    {% include 'libeiki/footer.html' %}
+</footer>
 {% endblock %}
 
 
