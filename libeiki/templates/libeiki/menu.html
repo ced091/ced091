@@ -32,7 +32,9 @@
     font-family: "SimSun";
   }
   nav {
-    background-color: #76B39B;
+    background-image: url('{% static "/photos/fond.png" %}');
+        background-size: cover;
+        background-position: center;
     color: #fff;
     padding: 10px;
     display: flex;
@@ -95,10 +97,6 @@
     z-index: 2;
   }
 
-  li:hover .dropdown {
-    display: block;
-  }
-
   .dropdown a {
     color: black;
     display: block;
@@ -135,10 +133,24 @@
     color: white; /* Changez cette valeur pour définir la nouvelle couleur au survol */
   }
 
+  a:visited {
+  color: black; /* Couleur des liens visités */
+  }
+
   .contenu-principal.menu-open {
     margin-top: 155px; /* Ajustez la valeur selon la hauteur du sous-menu */
     transition: margin-top 0.3s ease-out;
   }
+
+  .active_sub {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0px;
+      position: absolute;
+      left: 0;
+      background-color: #76B39B;
+      z-index: 2;
+    }
 
   @media only screen and (max-width: 1260px) {
 
@@ -159,6 +171,9 @@
 
     .dropdown-max {
       display: none;
+      background-image: url('{% static "/photos/fond.png" %}');
+        background-size: cover;
+        background-position: center;
     }
 
     ul.dropdown {
@@ -208,10 +223,20 @@
     ul.active {
       display: flex;
       flex-direction: column;
-      margin-top: 8px;
+      margin-top: 0px;
       width: 100%;
       position: absolute;
       top: 120px;
+      left: 0;
+      background-color: #76B39B;
+      z-index: 2;
+    }
+
+    .active_sub {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0px;
+      position: absolute;
       left: 0;
       background-color: #76B39B;
       z-index: 2;
@@ -234,18 +259,38 @@
       }
     }
   }
+
+
 </style>
 
 <!-- Ajout du script JavaScript -->
 <script>
-  // Fonction pour basculer la classe 'active' du menu
   function toggleMenu() {
     var menu = document.querySelector('ul');
     menu.classList.toggle('active');
-    // Ajouter ou supprimer la classe sur contenu-principal
-  var contenuPrincipal = document.querySelector('.contenu-principal');
-  contenuPrincipal.classList.toggle('menu-open');
+
+    var contenuPrincipal = document.querySelector('.contenu-principal');
+    contenuPrincipal.classList.toggle('menu-open');    
   }
+
+  function toggleSubMenu(element) {
+  var submenu = element.querySelector('.dropdown');
+  var isOpen = submenu.classList.contains('active_sub');
+  
+  closeAllSubMenus(); // Fermer tous les sous-menus ouverts
+
+  if (!isOpen) {
+    submenu.classList.add('active_sub');
+  }
+}
+
+  function closeAllSubMenus() {
+  
+  var subMenus = document.querySelectorAll('.dropdown');
+  subMenus.forEach(function(submenu) {
+    submenu.classList.remove('active_sub');
+  });
+}
 </script>
 <body>    
   <nav id="all-menu">    
@@ -266,30 +311,30 @@
     </div> 
     <ul class="dropdown-max menu-ul">
       <li class="menu-li"><a href="{% url 'libeiki:accueil' %}"><span class="fi-home"> ACCUEIL</span></a></li>
-      <li class="sub menu-li">
-        <a href="#">REIKI</a>
+      <li class="sub menu-li" onclick="toggleSubMenu(this)">
+        <a href="#">REIKI </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:reiki' %}">Qu'est ce que le Reiki?</a></li>
           <li class="menu-li"><a href="{% url 'libeiki:lignee_reiki' %}">Lignée Reiki</a></li>
           <li class="menu-li"><a href="{% url 'libeiki:tarif_reiki' %}">Tarifs</a></li>
         </ul>
       </li>
-      <li class="sub menu-li">
-        <a href="#">NUMEROLOGIE</a>
+      <li class="sub menu-li" onclick="toggleSubMenu(this)">
+        <a href="#">NUMEROLOGIE </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:numerologie' %}">Qu'est ce que la Numérologie?</a></li>
           <li class="menu-li"><a href="{% url 'libeiki:tarif_numerologie' %}">Tarifs</a></li>
         </ul>
       </li>      
-      <li class="menu-li sub">
-        <a href="#">MASSAGE BAGUETTE KANSA</a>
+      <li class="menu-li sub" onclick="toggleSubMenu(this)">
+        <a href="#">MASSAGE BAGUETTE KANSA </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:massage' %}">Qu'est ce que le Massage Baguette Kansa?</a></li>
           <li class="menu-li"><a href="{% url 'libeiki:tarif_massage' %}">Tarifs</a></li>
         </ul>
       </li>
-      <li class="sub menu-li">
-        <a href="#">SOPHROLOGIE</a>
+      <li class="sub menu-li" onclick="toggleSubMenu(this)">
+        <a href="#">SOPHROLOGIE </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la Sophrologie?</a></li>
           <li class="menu-li"><a href="{% url 'libeiki:tarif_sophrologie' %}">Tarifs</a></li>
