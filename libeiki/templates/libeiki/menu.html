@@ -60,10 +60,6 @@
     font-weight: bold;
   }
 
-  a:hover {
-    border-bottom: 2px solid #fff;
-  }
-
   .logo-container {
     display: flex;
     align-items: center;
@@ -270,8 +266,14 @@
     menu.classList.toggle('active');
 
     var contenuPrincipal = document.querySelector('.contenu-principal');
-    contenuPrincipal.classList.toggle('menu-open');    
-  }
+    contenuPrincipal.classList.toggle('menu-open');   
+    
+    if (menu.classList.contains('active')) {
+      contenuPrincipal.style.marginTop = '180px'; // Ajustez cette valeur selon votre design
+    } else {
+      contenuPrincipal.style.marginTop = '0';
+    }
+    }
 
   function toggleSubMenu(element) {
   var submenu = element.querySelector('.dropdown');
