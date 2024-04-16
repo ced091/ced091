@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'gunicorn',
     'libeiki',
     'docs',
+    'pokelira',
 ]
 
 MIDDLEWARE = [
