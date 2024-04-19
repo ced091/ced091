@@ -12,11 +12,23 @@
     .reiki_signe {
         text-align: right;
     }
+
+    .fieldset {
+                border-color: #76B39B;
+                border-width: 2px;
+                }
+
+            legend {
+                font-size: 30px;
+                color:#76B39B;
+            }
 </style>
 <body>
     <div class="contenu-principal">                
-        <div class="grid-container">              
-            <h3>Qu’est-ce que la Sophrologie ?</h3>                        
+        <div class="grid-container">        
+            <fieldset class="fieldset">
+
+            <legend>Qu’est-ce que la Sophrologie ?</legend>                        
             <p class="intro">
                 La sophrologie est une méthode de développement personnel qui combine des
                 techniques de relaxation, de respiration, de visualisation et de mouvements
@@ -26,19 +38,26 @@
                 sophrologie repose sur l'idée que la conscience de soi et la détente physique
                 contribuent à un équilibre psychologique.
             </p>
-            <h3>Pour qui ?</h3>
+        </fieldset>
+        <fieldset class="fieldset">
+            <legend>Pour qui ?</legend>
             <p class="intro">
                 Elle s'adresse à toute personne cherchant à améliorer son existence et développer un
                 mieux-être et apprendre à détendre.
             </p>
-            <h3>Pourquoi ?</h3>
+        </fieldset>
+        <fieldset class="fieldset">
+            <legend>Pourquoi ?</legend>
             <p class="intro">
                 La sophrologie est souvent utilisée pour améliorer la gestion du stress, l'estime de
                 soi, la concentration, et peut être appliquée dans divers contextes tels que la santé,
                 le sport, l'éducation et la préparation mentale.<br>
                 Chaque séance peut être adaptée en fonction de vos besoins spécifiques.
             </p>
-            <h3>Comment?</h3>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend>Comment?</legend>
             <p class="intro">
                 Avant la séance : Nous discuterons pour comprendre vos besoins, vos objectifs et
                 éventuellement vos éventuelles préoccupations.
@@ -56,7 +75,14 @@
                     La sophrologie est complémentaire à un traitement médical, mais ne le remplace
                     pas, de même qu’elle ne se substitue pas à l’écoute d’un psychologue.
                 </p>                
-            </p>         
+            </p> 
+            </fieldset>
+            <fieldset class="fieldset" id="tarif-sophrologie">
+                <legend>Tarifs</legend>
+                <p class="intro">
+                    Séance : 60€
+                </p>
+            </fieldset>       
         </div>
     </div>
 </body>

@@ -26,18 +26,22 @@
     font-family: "Dosis", sans-serif;
     }
 
-    @media only screen and (max-width: 768px) {
+    .fieldset {
+                border-color: #54977C;
+                border-width: 2px;
+                }
 
-        .intro {
-            font-size: 18px;
-        }
-    }
+            legend {
+                font-size: 30px;
+                color:#54977C
+            }
 </style>
 
 <body>
     <div class="contenu-principal">                
         <div class="grid-container"> 
-            <h3>Qu’est-ce que la Numérologie ?</h3>     
+            <fieldset class="fieldset">
+                <legend>Qu’est-ce que la Numérologie ?</legend>     
             <p class="intro">   
                 C’est une discipline qui se définit comme l’étude de la signification des nombres.
                 Comme son nom l’indique, elle va plus loin que le nombre en lui même, chaque nombre
@@ -46,13 +50,21 @@
                 chiffres permettent de déduire les caractéristiques marquantes de la personnalité de
                 chacun.                  
             </p>
+            </fieldset>
+
+            
             <div>
-                <h3>Pour qui ?</h3>
+                <fieldset class="fieldset">
+                <legend>Pour qui ?</legend>
                 <p class="intro">
                     Toutes personnes qui cherche à comprendre, et à connaître ses points forts,
                     et ses points faibles, à avoir des clés pour affronter les défis de la vie etc…
                 </p>
-                <h3>Pourquoi ?</h3>
+                </fieldset>
+
+                <fieldset class="fieldset">
+
+                <legend>Pourquoi ?</legend>
                 <p class="intro">
                     Elle vous aidera à découvrir tous les aspects de votre personnalité et à mettre en avant
                     vos capacités et vos potentialités. Elle identifiera également vos besoins personnels, les
@@ -63,7 +75,9 @@
                     Elle permet également de faire des « prévisions numérologiques » de votre année
                     personnelle.
                 </p>
-                <h3>Comment ?</h3>
+                </fieldset>
+                <fieldset class="fieldset">
+                <legend>Comment ?</legend>
                 <p class="intro">
                     La numérologie implique des calculs suivant une technique bien précise.
                     L’interprétation des résultats est basée sur la symbolique des nombres.<br>
@@ -72,6 +86,20 @@
                     vous permettant ainsi des les avoir à disposition et de les imprimer si vous en avez
                     envie.
                 </p>
+                </fieldset>
+
+                <fieldset class="fieldset" id="tarif-numerologie">
+                    <legend>Tarifs</legend>
+                    <p class="intro titre">
+                        Ananlyse de l’identité : 35€
+                    </p>
+                    <p class="intro titre">
+                        Analyse prévisionnelle : 35€
+                    </p>
+                    <p class="intro titre">
+                        Analyse complète (identité et prévisions) : 65€
+                    </p>
+                </fieldset>
             </div>
         </div>
     </div>

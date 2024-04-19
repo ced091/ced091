@@ -199,8 +199,8 @@
       margin-right: -8px;
     }
 
-    h1{
-      margin-left: -30px;
+    h1 {
+      margin-right: -30px;
     }
 
     .menu-icon {
@@ -234,7 +234,7 @@
       margin-top: 0px;
       position: absolute;
       left: 0;
-      background-color: #76B39B;
+      background-color: #345D4D;
       z-index: 2;
     }
       
@@ -325,21 +325,21 @@
         <a href="#">NUMEROLOGIE </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:numerologie' %}">Qu'est ce que la Numérologie?</a></li>
-          <li class="menu-li"><a href="{% url 'libeiki:tarif_numerologie' %}">Tarifs</a></li>
+          <li class="menu-li"><a href="{% url 'libeiki:numerologie' %}#tarif-numerologie">Tarifs</a></li>
         </ul>
       </li>      
       <li class="menu-li sub" onclick="toggleSubMenu(this)">
         <a href="#">MASSAGE BAGUETTE KANSA </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:massage' %}">Qu'est ce que le Massage Baguette Kansa?</a></li>
-          <li class="menu-li"><a href="{% url 'libeiki:tarif_massage' %}">Tarifs</a></li>
+          <li class="menu-li"><a href="{% url 'libeiki:massage' %}#tarif-massage">Tarifs</a></li>
         </ul>
       </li>
       <li class="sub menu-li" onclick="toggleSubMenu(this)">
         <a href="#">SOPHROLOGIE </a><span class="symbole">></span>
         <ul class="dropdown menu-ul">
           <li class="menu-li"><a href="{% url 'libeiki:sophrologie' %}">Qu'est ce que la Sophrologie?</a></li>
-          <li class="menu-li"><a href="{% url 'libeiki:tarif_sophrologie' %}">Tarifs</a></li>
+          <li class="menu-li"><a href="{% url 'libeiki:sophrologie' %}#tarif-sophrologie">Tarifs</a></li>
         </ul>
       </li>
       <li class="menu-li"><a href="{% url 'libeiki:contact' %}">CONTACT</a></li>
