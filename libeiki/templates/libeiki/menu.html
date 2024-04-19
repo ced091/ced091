@@ -148,6 +148,11 @@
       z-index: 2;
     }
 
+    .social {
+      font-size: 40px;
+      margin: 10px;
+    }
+     
   @media only screen and (max-width: 1260px) {
 
     .social-text {
@@ -241,11 +246,12 @@
     .social {
       height: 2vh;
       width: auto;
+      
     }
 
-    #enveloppe {
-      height: 2.5vh;
-      width: auto;
+    .social {
+      font-size: 20px;
+      margin: 5px;
     }
 
     #titre-principal {
@@ -361,15 +367,13 @@
       <div class="social-text">JOAQUIM Gabrielle</div>
       <div class="social-text">07 64 37 51 26</div>
       <div class="social-icons">
-        <a href="https://www.facebook.com/Libeiki" target="_blank">
-          <img class=social src="{% static '/photos/facebook.png' %}" alt="Facebook" width="30">
+        <a class="social" href="https://www.facebook.com/Libeiki" target="_blank">
+          <i class="fi-social-facebook"></i> 
         </a>
-        <a href="https://www.instagram.com/libeiki/" target="_blank">
-          <img class=social src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
+        <a class="social" href="https://www.instagram.com/libeiki/" target="_blank">
+          <i class="fi-social-instagram"></i>         
         </a>
-        <a href="mailto:libellule_1982@hotmail.com" target="_blank">
-          <img id="enveloppe" class=social src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
-        </a>
+        <a class="social" href="mailto:libellule_1982@hotmail.com" target="_blank"><i class="fi-mail"></i> </a>
       </div>
     </div>
   </nav>
