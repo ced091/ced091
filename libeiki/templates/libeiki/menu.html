@@ -243,6 +243,15 @@
       width: auto;
     }
 
+    #enveloppe {
+      height: 2.5vh;
+      width: auto;
+    }
+
+    #titre-principal {
+      margin-right: 30px;
+    }
+
     /* Ajout de l'animation slideIn */
     @keyframes slideIn {
       from {
@@ -306,7 +315,7 @@
     </div>  
     <div class="menu-container">
     <div class="title">
-      <h1>LIBEIKI</h1>
+      <h1 id="titre-principal">LIBEIKI</h1>
     </div>  
     <!-- Bouton de menu pour les écrans plus petits -->
     <div class="menu-icon" id="menu-small" onclick="toggleMenu()">
@@ -359,7 +368,7 @@
           <img class=social src="{% static '/photos/instagram.png' %}" alt="Instagram" width="30">
         </a>
         <a href="mailto:libellule_1982@hotmail.com" target="_blank">
-          <img class=social src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
+          <img id="enveloppe" class=social src="{% static '/photos/email.png' %}" alt="Mail To" width="40">
         </a>
       </div>
     </div>

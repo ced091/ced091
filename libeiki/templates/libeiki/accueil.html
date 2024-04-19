@@ -104,6 +104,10 @@
   align-items: center;
 }
 
+#a_nav {
+  color: black;
+}
+
 .callout {
   display: flex;
   flex-direction: column;
@@ -188,21 +192,24 @@
         </ul>
       </div>             
     </div>
-    <div class="grid-container intro">                    
+    <div class="grid-container intro">   
+      <fieldset class="fieldset">        
+        <legend>Présentation</legend>         
       <p class="intro">Plongez dans un monde dédié à votre épanouissement, où le Reiki apaise, la sophrologie équilibre, 
         les massages baguette Kansa réconfortent, et les études de numérologie éclairent votre chemin. Cette expérience unique, 
         façonnée selon vos besoins, vous offre le bien-être dans le confort de votre domicile, 
-        où chaque aspect de votre vie prend vie de manière harmonieuse.</p>
+        où chaque aspect de votre vie prend vie de manière harmonieuse.
+      </p>
+    </fieldset>
     </div>
     {% if commentaires %}
     <div class="grid-container commentaire" style="background-color: transparent; padding-top: 50px;">
 
-      <div class="callout" style="background-color: transparent;">
-
-        <p class="comments" id="comments-section" style="font-size: 35px;">Ils nous racontent leur expérience chez LIBEIKI</p>
+      <fieldset class="fieldset large-12 cell">
+        <legend>Ils nous racontent leur expérience chez LIBEIKI</legend>
         {% for commentaire in commentaires %} 
-        <div class="callout" id="commentaire{{ commentaire.id }}" style="background-color: transparent; width:70%; margin: auto; margin-bottom: 30px;">              
-          <div style="font-weight: bold; font-size: 25px;">
+        <div class="callout" id="commentaire{{ commentaire.id }}" style="background-color: transparent; width:70%; margin: auto; margin-bottom: 30px; border-color:#54977C;">              
+          <div style="font-weight: bold; font-size: 25px; color:#54977C;">
             {{ commentaire.pseudo}}
           </div>
           <div style="font-style: italic; font-size: 20px;">
@@ -225,8 +232,8 @@
         <div class="pagination">
           <span class="step-links">
             {% if commentaires.has_previous %}
-              <a href="?page=1#comments-section">&laquo; premier</a>
-              <a href="?page={{ commentaires.previous_page_number }}#comments-section">précédant</a>
+              <a id="a_nav" href="?page=1#comments-section">&laquo; premier</a>
+              <a id="a_nav" href="?page={{ commentaires.previous_page_number }}#comments-section">précédant</a>
             {% endif %}
         
             <span class="current">
@@ -234,12 +241,12 @@
             </span>
         
             {% if commentaires.has_next %}
-              <a href="?page={{ commentaires.next_page_number }}#comments-section">suivant</a>
-              <a href="?page={{ commentaires.paginator.num_pages }}#comments-section">dernier &raquo;</a>
+              <a id="a_nav" href="?page={{ commentaires.next_page_number }}#comments-section">suivant</a>
+              <a id="a_nav"href="?page={{ commentaires.paginator.num_pages }}#comments-section">dernier &raquo;</a>
             {% endif %}
           </span>
         </div>
-      </div>
+      </fieldset>
     </div>
     {% endif %}
   </div>
