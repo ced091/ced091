@@ -22,10 +22,10 @@
     <h2>Mesures dernières 24h capteur BME280</h2>
     <div class="grid-container">
         <div class="grid-x">
-            <div class="small-12 medium-6 cell indication" >
+            <div class="small-12 medium-4 cell indication" >
                 <canvas id="chartTemperature" width="400" height="400"></canvas>
                 <div>
-                    Max : {{ max_temperature }}
+                    Max : {{ max_temperature }} °C
                 </div>
                 <div>
                     Min : {{ min_temperature }}
@@ -37,7 +37,7 @@
                     SIGMA : {{ st_dev_temperature }}
                 </div> 
             </div>    
-            <div class="small-12 medium-6 cell indication" >    
+            <div class="small-12 medium-4 cell indication" >    
                 <canvas id="chartPressure" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_pressure }}
@@ -52,7 +52,7 @@
                     SIGMA : {{ st_dev_pressure }}
                 </div> 
             </div>
-            <div class="small-12 medium-6 cell indication" >
+            <div class="small-12 medium-4 cell indication" >
                 <canvas id="chartHumidity" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_humidity }}
@@ -75,6 +75,12 @@
         var temperature = {{ temperature|safe }};
         var pressure = {{ pressure|safe }};
         var humidity = {{ humidity|safe }};
+        var max_temperature = {{ max_temperature }} + 0.1;
+        var min_temperature = {{ min_temperature }} - 0.1;
+        var max_humidity = {{ max_humidity }} + 1;
+        var min_humidity = {{ min_humidity }} - 1;
+        var max_pressure = {{ max_pressure }} + 0.1;
+        var min_pressure = {{ min_pressure }} - 0.1;
         
         // Créer un graphique avec Chart.js
         var ctxTemperature = document.getElementById('chartTemperature').getContext('2d');
@@ -103,10 +109,10 @@
                     },
                     y: {
                         beginAtZero: false,
-                        min: 15, // Valeur minimale de l'échelle
-                        max: 35, // Valeur maximale de l'échelle
+                        min: min_temperature, // Valeur minimale de l'échelle
+                        max: max_temperature, // Valeur maximale de l'échelle
                         ticks: {
-                                stepSize: 1 // Taille de l'intervalle entre les étiquettes
+                                stepSize: 0.1 // Taille de l'intervalle entre les étiquettes
                         }
                     }
                 }
@@ -140,10 +146,10 @@
                     },
                     y: {
                         beginAtZero: false,
-                        min: 900, // Valeur minimale de l'échelle
-                        max: 1100, // Valeur maximale de l'échelle
+                        min: min_pressure, // Valeur minimale de l'échelle
+                        max: max_pressure, // Valeur maximale de l'échelle
                         ticks: {
-                                stepSize: 10 // Taille de l'intervalle entre les étiquettes
+                                stepSize: 0.1 // Taille de l'intervalle entre les étiquettes
                         }
                     }
                 }
@@ -178,10 +184,10 @@
                     },
                     y: {
                         beginAtZero: false,
-                        min: 15, // Valeur minimale de l'échelle
-                        max: 85, // Valeur maximale de l'échelle
+                        min: min_humidity, // Valeur minimale de l'échelle
+                        max: max_humidity, // Valeur maximale de l'échelle
                         ticks: {
-                                stepSize: 5 // Taille de l'intervalle entre les étiquettes
+                                stepSize: 0.5 // Taille de l'intervalle entre les étiquettes
                         }
                     }
                 }

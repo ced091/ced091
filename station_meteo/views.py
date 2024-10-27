@@ -51,20 +51,20 @@ def accueil(request):
     paris_tz = pytz.timezone("Europe/Paris")
     labels = [entry.timestamp.astimezone(paris_tz).strftime("%Y-%m-%d %H:%M:%S") for entry in data]
     temperature = [entry.temperature for entry in data]
-    max_temperature = "{:.3f}".format(max(temperature)) + " °C"
-    min_temperature = "{:.3f}".format(min(temperature)) + " °C"
-    avg_temperature = "{:.3f}".format(sum(temperature)/len(temperature)) + " °C"
-    st_dev_temperature = "{:.3f}".format(stdev(temperature)) + " °C"
+    max_temperature = "{:.3f}".format(max(temperature))
+    min_temperature = "{:.3f}".format(min(temperature))
+    avg_temperature = "{:.3f}".format(sum(temperature)/len(temperature))
+    st_dev_temperature = "{:.3f}".format(stdev(temperature))
     pressure = [entry.pressure for entry in data]
-    max_pressure = "{:.3f}".format(max(pressure)) + " hPa"
-    min_pressure = "{:.3f}".format(min(pressure)) + " hPa"
-    avg_pressure = "{:.3f}".format(sum(pressure)/len(pressure)) + " hPa"
-    st_dev_pressure = "{:.3f}".format(stdev(pressure)) + " hPa"
+    max_pressure = "{:.3f}".format(max(pressure))
+    min_pressure = "{:.3f}".format(min(pressure))
+    avg_pressure = "{:.3f}".format(sum(pressure)/len(pressure))
+    st_dev_pressure = "{:.3f}".format(stdev(pressure))
     humidity = [entry.humidity for entry in data]
-    max_humidity = "{:.3f}".format(max(humidity)) + " %"
-    min_humidity = "{:.3f}".format(min(humidity)) + " %"
-    avg_humidity = "{:.3f}".format(sum(humidity)/len(humidity)) + " %"
-    st_dev_humidity = "{:.3f}".format(stdev(humidity)) + " %"
+    max_humidity = "{:.3f}".format(max(humidity))
+    min_humidity = "{:.3f}".format(min(humidity))
+    avg_humidity = "{:.3f}".format(sum(humidity)/len(humidity))
+    st_dev_humidity = "{:.3f}".format(stdev(humidity))
     context = {
         'labels': labels,
         'temperature': temperature,
