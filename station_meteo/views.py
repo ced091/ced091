@@ -17,6 +17,7 @@ from .capteur_temp import reading_data
 # Create your views here.
 
 from django.utils import timezone
+import pytz
 
 from datetime import datetime, timedelta
 
@@ -47,7 +48,8 @@ def accueil(request):
     last_24_hours = timezone.now() - timedelta(hours=24)
     data = MeteoPoint.objects.filter(timestamp__gte=last_24_hours)
     # Préparer les données pour le passage au template
-    labels = [entry.timestamp.strftime("%Y-%m-%d %H:%M:%S") for entry in data]
+    paris_tz = pytz.timezone("Europe/Paris")
+    labels = [entry.timestamp.astimezone(paris_tz).strftime("%Y-%m-%d %H:%M:%S") for entry in data]
     temperature = [entry.temperature for entry in data]
     max_temperature = "{:.3f}".format(max(temperature)) + " °C"
     min_temperature = "{:.3f}".format(min(temperature)) + " °C"
