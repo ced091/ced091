@@ -69,18 +69,86 @@
             </div>
         </div>
     </div>
+    <h2>Mesures Température totales moyenne 1 jour BME280</h2>
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="small-12 medium-12 cell indication" >
+                <canvas id="chartTemperatureMoy" width="400" height="400"></canvas>
+                <div>
+                    Max : {{ max_humidity }}
+                </div>
+                <div>
+                    Min : {{ min_humidity }}
+                </div>
+                <div>
+                    Moy : {{ avg_humidity }}
+                </div> 
+                <div>
+                    SIGMA : {{ st_dev_humidity }}
+                </div> 
+            </div>
+        </div>
+    </div>
+    <h2>Mesures Humidité totales moyenne 1 jour BME280</h2>
+        <div class="grid-container">
+            <div class="small-12 medium-12 cell indication" >
+                <canvas id="chartHumidityMoy" width="400" height="400"></canvas>
+                <div>
+                    Max : {{ max_humidity }}
+                </div>
+                <div>
+                    Min : {{ min_humidity }}
+                </div>
+                <div>
+                    Moy : {{ avg_humidity }}
+                </div> 
+                <div>
+                    SIGMA : {{ st_dev_humidity }}
+                </div> 
+            </div>
+        </div>
+    </div>
+    <h2>Mesures Pression totales moyenne 1 jour BME280</h2>
+        <div class="grid-container">
+            <div class="small-12 medium-12 cell indication" >
+                <canvas id="chartPressureMoy" width="400" height="400"></canvas>
+                <div>
+                    Max : {{ max_humidity }}
+                </div>
+                <div>
+                    Min : {{ min_humidity }}
+                </div>
+                <div>
+                    Moy : {{ avg_humidity }}
+                </div> 
+                <div>
+                    SIGMA : {{ st_dev_humidity }}
+                </div> 
+            </div>
+        </div>
+    </div>
     <script>
         // Récupérer les données passées depuis la vue Django
         var labels = {{ labels|safe }};
         var temperature = {{ temperature|safe }};
         var pressure = {{ pressure|safe }};
         var humidity = {{ humidity|safe }};
+        var labels_moy = {{ labels_moy|safe }};
+        var temperature_moy = {{ temperature_moy|safe }};
+        var pressure_moy = {{ pressure_moy|safe }};
+        var humidity_moy = {{ humidity_moy|safe }};
         var max_temperature = {{ max_temperature }} + 0.1;
         var min_temperature = {{ min_temperature }} - 0.1;
         var max_humidity = {{ max_humidity }} + 1;
         var min_humidity = {{ min_humidity }} - 1;
         var max_pressure = {{ max_pressure }} + 0.1;
         var min_pressure = {{ min_pressure }} - 0.1;
+        var max_temperature_moy = {{ max_temperature_moy }} + 0.1;
+        var min_temperature_moy = {{ min_temperature_moy }} - 0.1;
+        var max_humidity_moy = {{ max_humidity_moy }} + 1;
+        var min_humidity_moy = {{ min_humidity_moy }} - 1;
+        var max_pressure_moy = {{ max_pressure_moy }} + 0.1;
+        var min_pressure_moy = {{ min_pressure_moy }} - 0.1;
         
         // Créer un graphique avec Chart.js
         var ctxTemperature = document.getElementById('chartTemperature').getContext('2d');
@@ -119,7 +187,6 @@
             }
         });
 
-        // Créer le deuxième graphique avec Chart.js
         var ctxPressure = document.getElementById('chartPressure').getContext('2d');
         var chartPressure = new Chart(ctxPressure, {
             type: 'line',
@@ -136,27 +203,26 @@
             options: {
                 scales: {
                     x: {
-                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        type: 'time', 
                         time: {
-                            unit: 'hour', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            unit: 'hour', 
                             displayFormats: {
-                                hour: 'HH:mm' // Format européen pour les heures (24 heures)
+                                hour: 'HH:mm' 
                             }
                         }
                     },
                     y: {
                         beginAtZero: false,
-                        min: min_pressure, // Valeur minimale de l'échelle
-                        max: max_pressure, // Valeur maximale de l'échelle
+                        min: min_pressure, 
+                        max: max_pressure, 
                         ticks: {
-                                stepSize: 0.1 // Taille de l'intervalle entre les étiquettes
+                                stepSize: 0.1
                         }
                     }
                 }
             }
         });
 
-        // Créer le deuxième graphique avec Chart.js
         var ctxHumidity = document.getElementById('chartHumidity').getContext('2d');
         var chartHumidity = new Chart(ctxHumidity, {
             type: 'line',
@@ -188,6 +254,114 @@
                         max: max_humidity, // Valeur maximale de l'échelle
                         ticks: {
                                 stepSize: 0.5 // Taille de l'intervalle entre les étiquettes
+                        }
+                    }
+                }
+            }
+        });
+
+        // Créer le deuxième graphique avec Chart.js
+        var ctxTemperatureMoy = document.getElementById('chartTemperatureMoy').getContext('2d');
+        var chartTemperatureMoy = new Chart(ctxTemperatureMoy, {
+            type: 'line',
+            data: {
+                labels: labels_moy,
+                datasets: [{
+                    label: 'Température (°C)',
+                    data: temperature_moy,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2', // Couleur de fond
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                     // Couleur de la bordure
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        time: {
+                            unit: 'day', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            
+                        }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        min: min_temperature_moy, // Valeur minimale de l'échelle
+                        max: max_temperature_moy, // Valeur maximale de l'échelle
+                        ticks: {
+                                stepSize: 0.5 // Taille de l'intervalle entre les étiquettes
+                        }
+                    }
+                }
+            }
+        });
+
+        // Créer le deuxième graphique avec Chart.js
+        var ctxHumidityMoy = document.getElementById('chartHumidityMoy').getContext('2d');
+        var chartHumidityMoy = new Chart(ctxHumidityMoy, {
+            type: 'line',
+            data: {
+                labels: labels_moy,
+                datasets: [{
+                    label: 'Humidité (%)',
+                    data: humidity_moy,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Couleur de fond
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                     // Couleur de la bordure
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        time: {
+                            unit: 'day', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            
+                        }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        min: min_humidity_moy, // Valeur minimale de l'échelle
+                        max: max_humidity_moy, // Valeur maximale de l'échelle
+                        ticks: {
+                                stepSize: 2 // Taille de l'intervalle entre les étiquettes
+                        }
+                    }
+                }
+            }
+        });
+
+        // Créer le deuxième graphique avec Chart.js
+        var ctxPressureMoy = document.getElementById('chartPressureMoy').getContext('2d');
+        var chartPressureMoy = new Chart(ctxPressureMoy, {
+            type: 'line',
+            data: {
+                labels: labels_moy,
+                datasets: [{
+                    label: 'Pression (hPa)',
+                    data: pressure_moy,
+                    backgroundColor: 'rgba(0, 128, 0, 0.2)', // Couleur de fond
+                    borderColor: 'rgba(0, 128, 0, 1)',
+                     // Couleur de la bordure
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time', // Spécifier le type de l'axe des x comme étant de type temps
+                        time: {
+                            unit: 'day', // Changer l'unité de temps si nécessaire (heure, minute, jour, etc.)
+                            
+                        }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        min: min_pressure_moy, // Valeur minimale de l'échelle
+                        max: max_pressure_moy, // Valeur maximale de l'échelle
+                        ticks: {
+                                stepSize: 20 // Taille de l'intervalle entre les étiquettes
                         }
                     }
                 }

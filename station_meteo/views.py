@@ -13,6 +13,8 @@ from django.http import HttpResponse
 from station_meteo.models import Bme280
 from .forms import Bme280Form
 from .capteur_temp import reading_data
+from django.db.models import Avg
+from django.db.models.functions import TruncDate
 
 # Create your views here.
 
@@ -42,6 +44,20 @@ class MeteoPointAPIView(APIView):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+    
+def moyenne_journaliere():
+    moyennes_par_jour = (
+        MeteoPoint.objects
+        .annotate(date=TruncDate('timestamp'))
+        .values('date')
+        .annotate(
+            temperature_moyenne=Avg('temperature'),
+            humidity_moyenne=Avg('humidity'),
+            pressure_moyenne=Avg('pressure')
+        )
+        .order_by('date')
+    )
+    return moyennes_par_jour
 
 def accueil(request):
     log_user(request, "accueil/meteo")
@@ -65,6 +81,22 @@ def accueil(request):
     min_humidity = "{:.3f}".format(min(humidity))
     avg_humidity = "{:.3f}".format(sum(humidity)/len(humidity))
     st_dev_humidity = "{:.3f}".format(stdev(humidity))
+
+    moy = moyenne_journaliere()
+    temperature_moy = [entry['temperature_moyenne'] for entry in moy]
+    pressure_moy = [entry['pressure_moyenne'] for entry in moy]
+    humidity_moy = [entry['humidity_moyenne'] for entry in moy]
+    labels_moy = [entry['date'].strftime('%Y-%m-%d') for entry in moy]
+    max_temperature_moy = "{:.3f}".format(max(temperature_moy))
+    min_temperature_moy = "{:.3f}".format(min(temperature_moy))
+    avg_temperature_moy = "{:.3f}".format(sum(temperature_moy)/len(temperature_moy))
+    max_pressure_moy = "{:.3f}".format(max(pressure_moy))
+    min_pressure_moy = "{:.3f}".format(min(pressure_moy))
+    avg_pressure_moy = "{:.3f}".format(sum(pressure_moy)/len(pressure_moy))
+    max_humidity_moy = "{:.3f}".format(max(humidity_moy))
+    min_humidity_moy = "{:.3f}".format(min(humidity_moy))
+    avg_humidity_moy = "{:.3f}".format(sum(humidity_moy)/len(humidity_moy))
+
     context = {
         'labels': labels,
         'temperature': temperature,
@@ -82,6 +114,19 @@ def accueil(request):
         'min_humidity' : min_humidity,
         'avg_humidity' : avg_humidity,
         'st_dev_humidity' : st_dev_humidity,
+        'temperature_moy' : temperature_moy,
+        'pressure_moy' : pressure_moy,
+        'humidity_moy': humidity_moy,
+        'labels_moy' : labels_moy,
+        'max_temperature_moy': max_temperature_moy,
+        'min_temperature_moy': min_temperature_moy,
+        'avg_temperature_moy': avg_temperature_moy,
+        'max_pressure_moy': max_pressure_moy,
+        'min_pressure_moy': min_pressure_moy,
+        'avg_pressure_moy': avg_pressure_moy,
+        'max_humidity_moy': max_humidity_moy,
+        'min_humidity_moy': min_humidity_moy,
+        'avg_humidity_moy': avg_humidity_moy,
     }
     return render(request, 'station_meteo/accueil_bis.html', context)
 
