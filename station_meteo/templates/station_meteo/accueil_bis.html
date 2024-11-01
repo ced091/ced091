@@ -1,4 +1,12 @@
-{% extends "ced091/base.html" %}
+{% extends "ced091/base_boot.html" %}
+
+{% load static %}
+
+{% block menu %}
+
+  {% include "ced091/menu.html" %}
+
+{% endblock %}
 
 {% block content %}
 
@@ -19,6 +27,7 @@
     }
 </style>
 <body>
+    {% if context %}
     <h2>Mesures dernières 24h capteur BME280</h2>
     <div class="grid-container">
         <div class="grid-x">
@@ -361,6 +370,9 @@
     </script>
 </body>
 </html>
+{% else %}
+<h2>Problème avec le capteur, nombre de points insuffisants</h2>
+{% endif %}
 
 
 {% endblock %}

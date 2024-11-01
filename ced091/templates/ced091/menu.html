@@ -1,0 +1,34 @@
+{% load static %}
+
+{% block menu %}
+
+<style>
+.signup {
+  color=black;
+}
+</style>
+
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <div class="col-md-3 mb-2 mb-md-0">
+        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+          <img class="thumbnail" src="{% static 'favicon.ico' %}"  style="width: 30%">
+        </a>
+      </div>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url 'main' %}" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="{% url 'station_meteo:accueil' %}" class="nav-link px-2">Station Météo</a></li>
+        <li><a href="#" class="nav-link px-2">Pronostic</a></li>
+        <li><a href="{% url 'pokelira:accueil' %}" class="nav-link px-2">Pok Club Vid</a></li>
+        <li><a href="{% url 'libeiki:accueil' %}" class="nav-link px-2">Site Gabrielle</a></li>
+        <li><a href="{% url 'docs:main' 'index.html' %}" class="nav-link px-2">Documentation</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <a class="btn btn-outline-primary me-2" href="#">Login</a>
+        <a class="btn btn-primary" href="{% url 'signup' %}"><span class="signup">Sign-Up</span></a>
+      </div>
+    </header>
+  </div>
+{% endblock %}

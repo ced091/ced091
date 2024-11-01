@@ -23,5 +23,6 @@ urlpatterns = [
     path('libeiki/', include('libeiki.urls')),
     path('document/', include('docs.urls')),
     path('pokelira/', include('pokelira.urls')),
+    path('sign-up/', views.signup, name="signup"),
     path('admin/', admin.site.urls),
 ]

@@ -28,4 +28,8 @@ def main(request):
     context = {
         "date_nom": affichage_date
     }
-    return render(request, "ced091/main.html", context)
+    return render(request, "ced091/main_boot.html", context)
+
+def signup(request):
+    log_user(request, "signin")
+    return render(request, "ced091/signup.html")
