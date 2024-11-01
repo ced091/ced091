@@ -27,11 +27,11 @@
     }
 </style>
 <body>
-    {% if context %}
+    {% if values %}
     <h2>Mesures dernières 24h capteur BME280</h2>
-    <div class="grid-container">
-        <div class="grid-x">
-            <div class="small-12 medium-4 cell indication" >
+    <div class="container text-center">
+        <div class="row">
+            <div class="col cell indication" >
                 <canvas id="chartTemperature" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_temperature }} °C
@@ -46,7 +46,7 @@
                     SIGMA : {{ st_dev_temperature }}
                 </div> 
             </div>    
-            <div class="small-12 medium-4 cell indication" >    
+            <div class="col cell indication" >    
                 <canvas id="chartPressure" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_pressure }}
@@ -61,7 +61,7 @@
                     SIGMA : {{ st_dev_pressure }}
                 </div> 
             </div>
-            <div class="small-12 medium-4 cell indication" >
+            <div class="col cell indication" >
                 <canvas id="chartHumidity" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_humidity }}
@@ -79,9 +79,9 @@
         </div>
     </div>
     <h2>Mesures Température totales moyenne 1 jour BME280</h2>
-    <div class="grid-container">
-        <div class="grid-x">
-            <div class="small-12 medium-12 cell indication" >
+    <div class="container text-center">
+        <div class="row">
+            <div class="col cell indication" >
                 <canvas id="chartTemperatureMoy" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_temperature_moy }}
@@ -96,8 +96,9 @@
         </div>
     </div>
     <h2>Mesures Humidité totales moyenne 1 jour BME280</h2>
-        <div class="grid-container">
-            <div class="small-12 medium-12 cell indication" >
+    <div class="container text-center">
+        <div class="row">
+            <div class="col cell indication" >
                 <canvas id="chartHumidityMoy" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_humidity_moy }}
@@ -112,8 +113,9 @@
         </div>
     </div>
     <h2>Mesures Pression totales moyenne 1 jour BME280</h2>
-        <div class="grid-container">
-            <div class="small-12 medium-12 cell indication" >
+    <div class="container text-center">
+        <div class="row">
+            <div class="col cell indication" >
                 <canvas id="chartPressureMoy" width="400" height="400"></canvas>
                 <div>
                     Max : {{ max_pressure_moy }}
@@ -368,11 +370,11 @@
             }
         });
     </script>
-</body>
-</html>
+
 {% else %}
 <h2>Problème avec le capteur, nombre de points insuffisants</h2>
 {% endif %}
 
-
+</body>
+</html>
 {% endblock %}

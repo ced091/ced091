@@ -129,8 +129,11 @@ def accueil(request):
             'max_humidity_moy': max_humidity_moy,
             'min_humidity_moy': min_humidity_moy,
             'avg_humidity_moy': avg_humidity_moy,
+            'values': True,
         }
     else:
-        context = None
+        context = {
+            'values':False
+        }
     return render(request, 'station_meteo/accueil_bis.html', context)
 
