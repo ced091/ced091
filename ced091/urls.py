@@ -24,5 +24,6 @@ urlpatterns = [
     path('document/', include('docs.urls')),
     path('pokelira/', include('pokelira.urls')),
     path('sign-up/', views.signup, name="signup"),
+    path('memo/', include('memo.urls')),
     path('admin/', admin.site.urls),
 ]

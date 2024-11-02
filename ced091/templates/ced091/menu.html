@@ -4,13 +4,17 @@
 
 <style>
 .signup {
-  color=black;
+  color: black;
+}
+.icone {
+  padding-right: 50px;
+  padding-left: 50px;
 }
 </style>
 
-<div class="container">
+
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <div class="col-md-3 mb-2 mb-md-0">
+      <div class="col-md-3 mb-2 mb-md-0 icone">
         <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
           <img class="thumbnail" src="{% static 'favicon.ico' %}"  style="width: 30%">
         </a>
@@ -25,10 +29,10 @@
         <li><a href="{% url 'docs:main' 'index.html' %}" class="nav-link px-2">Documentation</a></li>
       </ul>
 
-      <div class="col-md-3 text-end">
+      <div class="col-md-3 text-end icone">
         <a class="btn btn-outline-primary me-2" href="#">Login</a>
         <a class="btn btn-primary" href="{% url 'signup' %}"><span class="signup">Sign-Up</span></a>
       </div>
     </header>
-  </div>
+
 {% endblock %}

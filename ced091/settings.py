@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'libeiki',
     'docs',
     'pokelira',
+    'memo',
 ]
 
 MIDDLEWARE = [

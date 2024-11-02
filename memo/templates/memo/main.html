@@ -1,0 +1,44 @@
+{% extends 'ced091/base_boot.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Le jeu du MEMO</title>
+        <link href="{% static 'css/style_memo.css' %}" rel="stylesheet">
+        <!--- Attention à la Police -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    </head>
+    <header>
+        <h2>
+            Jeu du MEMOCED
+        </h2>
+    </header>
+    <body>
+        <div class="conteneur">
+            <div class="card0" id="card1"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card2"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card3"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card4"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card5"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card6"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card7"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card8"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card9"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card10"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card11"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card12"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card13"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card14"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card15"><img src="{% static 'photos/memo/carte_orange.png' %}"></div>
+            <div class="card0" id="card16"><img src="{% static 'photos/memo/carte_orange.png' %}"    ></div>
+        </div>
+    </body>
+</html>
+{% endblock %}
